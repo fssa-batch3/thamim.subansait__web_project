@@ -4,17 +4,13 @@ body {
     text-align:center;
     background-color: black;
     font-family:'Poppins', sans-serif;
-    width: 100%;
-    height: 100%;
-
+    background-image: url(../img/2022_Dribbble_Zidler.gif);
+    background-size:auto;
+    
 }
 
 .popup{
-    width: 30%;
-    height: 490px;
-    margin-top: 180px;
     background-color:#FFFFFF;
-    margin-left: 550px;
     border-radius: 10%;
 }
 
@@ -55,31 +51,28 @@ body {
 
 }
 .section {
-    position: relative;
+    
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    
   }
   .section .popup {
     text-align: center;
     position: absolute;
     left: 500px;
-    top: 180px;
-    font-family: "Cookie";
+    top: 150px;
     padding: 20px;
     margin: 15px;
     z-index: 1;
-    color: rgba(111, 0, 111, 0.877);
+    color: black;
     width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
-  .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0.4;
+  .section .popup:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
 
-  }
 
   
 
