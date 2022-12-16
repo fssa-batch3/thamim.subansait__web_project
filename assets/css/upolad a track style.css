@@ -125,6 +125,7 @@
 }
   body{
       background-color: #000000;
+      overflow-x: hidden
        
   }
 
@@ -212,11 +213,11 @@ h1{
     width: 90px;
 }
 #fileInputField{
- display: none;
+     position: relative;
+     left: 210px;
+     opacity: 0;
 }
-#fileInputField1{
-  display: none;
-}
+
 #name1{
     background-color: white;
     width: 300px;
