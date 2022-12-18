@@ -219,9 +219,9 @@
         margin-left: 150px;        
 }
 .similar img:hover{
-    background-color: rgb(255, 22, 131);
+   transform: scale(1.05);
     border-radius: 10px;
-    width: 15%;
+
 }
 @import url(//db.onlinewebfonts.com/c/860c3ec7bbc5da3e97233ccecafe512e?family=Circular+Std+Book);
   
