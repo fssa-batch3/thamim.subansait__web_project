@@ -152,7 +152,7 @@
   
   }
   .rightside{
-      margin-right: 300px;
+      margin-right: 160px;
       text-align: center;
       position: relative;
       left: 60px;
@@ -167,7 +167,7 @@
 .secondright{
    color:white;
    position: relative;
-   right: 170px; 
+   right: 35px; 
    margin-top: 13px;
    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
    border-radius: 30px;
@@ -209,10 +209,9 @@
   .productlist{
     display: flex;
     flex-direction:row;
-    position: relative;
-    left:10px;
     padding-top: 20px;
     border-radius: 30px;
+    flex-wrap: wrap;
   }
   .productlist p{
     position: relative;
@@ -443,4 +442,55 @@
       --size: .8em;
   }
   
-  
+  @media(max-width: 399px) {
+      .content{
+           display: flex;
+           flex-direction: column;
+           margin-left: 0px;
+      }
+      .secondright{
+        display: none;
+      }
+      .leftside{
+        display: none;
+        
+      }
+      .header{
+        display: none;
+      }
+      .rightside{
+        margin-right: 0px;
+        position: relative;
+        left: 0px;
+      }
+      .productlist img{
+        width: 100px;
+        height: 100px;
+      }
+      .productlist{
+      position: relative;
+      left:0px;
+      }
+      .productlist p{
+        position: relative;
+        left: 0px;
+      }
+      .other-features{
+        display: none;
+      }
+      .image-container{
+
+        display: none;
+      }
+      .icons{
+        display: none;
+      }
+      .title1{
+        width: 150%;
+        display: none;
+      }
+      #hide{
+        display: none;
+      }
+  }  
+

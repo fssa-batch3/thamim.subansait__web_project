@@ -349,3 +349,7 @@ footer i{
 .link1 p{
   padding: 2px;
 }
+
+@media (max-width:393) {
+  
+}

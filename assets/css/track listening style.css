@@ -384,5 +384,96 @@ i:hover{
 .volume-bar .progress-bar:hover .progress::after{
     --size: .8em;
 }
+@media (max-width:399px){
+    .second-right{
+        display: none;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .dropdown{
+     display: none;
+    }
+    .header p{
+        display: none;
+
+    }
+    .profile{
+        display: none;
+    }
+    .carticon{
+        display: none;   
+    }
+    #book{
+   display: none;        
+    }
+    .logo1{
+        width: 300px;
+        position: relative;
+        margin-left: 50px;
+    }
+    .logo{
+        width: 100px;
+    }
+  form{
+    display: none;
+  }
+  #hide{
+    display: none;
+  }
+  .other-features{
+    display: none;
+  }
+
+  .icons{
+    display: none;
+  }
+ .rightside h2{
+    position: relative;
+    left: 0px;
+ }
+ .rightside p{
+    position: relative;
+    left: 0px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+ }
+ .card{
+    margin-left: 0px;
+ }
+ .similar img{
+    margin-left: 0px;
+    width: 150px;
+ }
+ .similar{
+   display: flex;
+   overflow-x: scroll;
+ }
+ .rightside button{
+    text-align: center;
+    padding-left: 0px;
+    position: relative;
+    left:80px;
+ }
+ .image-container{
+    display: none;
+ }
+ .music-player{
+    justify-content: space-between;
+ }
+ .title1{
+    width: 100%;
+ }
+ .progress-container{
+    
+ }
+
+}
+
+    
+    
+
 
 

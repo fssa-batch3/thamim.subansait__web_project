@@ -273,19 +273,19 @@
               </div> 
               <div class="input">
               <h2>Email</h2>
-              <input type="email" placeholder="*********@gmail.com">
+              <input  type="email" id="user_email">
             </div>
             <div class="input1">
               <h2>Password</h2>
-              <input type="password" placeholder="Edit your password">
+              <input type="password" id="user_password">
             </div>
             <div class="input">
               <h2>Name</h2>
-              <input type="text" placeholder="Name">
+              <input type="text" id="user_name">
             </div>
             <div class="input2">
               <h2>Age</h2>
-              <input type="text" placeholder="You can't edit your Age" readonly>
+              <input type="text" id="user_age"  readonly>
             </div>
             <div class="btn">
             <button type="button" class="btn1">Edit</button>
@@ -523,6 +523,28 @@
 
         </div>
 
+
+
+        <script>
+       
+       const email = localStorage.getItem("user_email");
+       const password = localStorage.getItem("user_password");
+       const name = localStorage.getItem("user_name");
+       const age = localStorage.getItem("user_age")
+
+       document.getElementById("user_email").value = email
+       document.getElementById("user_name").value = name
+       document.getElementById("user_password").value = password
+       document.getElementById("user_age").value = age
+       
+       
+       console.log(email);
+       console.log(name);
+       console.log(passsword);
+       console.log(age);
+     
+
+        </script>
         
     </body>
 </html>

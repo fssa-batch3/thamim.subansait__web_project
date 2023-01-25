@@ -6,36 +6,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <body>
-        <div class="section">           
-        <div class="popup">
+        <div id="object"class="section">           
+        <div id="object" class="popup">
             <h1>SIGN UP</h1>
-            <p> PLEASE FILL THE DETAILS</p>
+            <p> PLEASE FILL THE DETAILS</p> 
             <div class="total">
             <div class="space">
             <label for="Email"><b>Email  Id</b></label>
-            <input type= "email" name="email" required="true" placeholder="Enter Email">
+            <input type= "email" required="true" placeholder="Enter Email" id="email">
             </div>
             <div class="space1">
             <label for="pas"><b>password</b></label>
-            <input type="password" placeholder="Enter password" name="pas" required>
+            <input type="password" placeholder="Enter password" id="password" required>
             </div>
             <div class="space1">
            <label><b>Full Name</b></label>
-           <input type="text" id="name" placeholder="Enter Your Name">
+           <input type="text" id="name"  placeholder="Enter Your Name">
             </div>
             <div class="space1">
             <label><b>Your Age</b></label>
-            <input type="number" min="0" max="30" id="age">
+            <input type="number" min="0" max="30"id="age">
 
             </div>
             </div>
             <div class="space2">
             <label for="tandc">
-            <input type="checkbox" checked="checked" style="margin-bottom: 15px;"><b>Agree with T&C</b>
+            <input type="checkbox" id="T&C" checked="checked" style="margin-bottom: 15px;"><b>Agree with T&C</b>
             </label></div>
             <div class="space3">
             <label for="notify">
-                <input type="checkbox" style="margin-bottom: 15px;"><b>notify me offer in mail</b>
+                <input type="checkbox" id="notice" style="margin-bottom: 15px;"><b>notify me offer in mail</b>
             </label></div>
             <div class="select1"> 
                 <button type="button">buyer</button>
@@ -44,7 +44,7 @@
             <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
             <div class="select2">
                 <button type="reset" style="background-color:red; color: white; cursor: pointer;">Reset</button> 
-                <a href="../login page/log in.html"><button type="submit" style="background-color:green; cursor: pointer;">Sign Up</button></a>
+                <button type="button" onclick="sub()" style="background-color:green; cursor: pointer;">Sign Up</button>
             </div>
             <div>
 
@@ -52,5 +52,42 @@
         </div>
 
 </div> 
+
+
+         <script>
+
+            function sub(){
+        const email = document.getElementById("email").value  
+        const password = document.getElementById("password").value 
+        const name = document.getElementById("name").value
+        const age = document.getElementById("age").value
+        const TC = document.getElementById("T&C").value
+        const notify = document.getElementById("notice").value  
+              
+        
+        console.log(email)
+        console.log(password)
+        console.log(name)
+        console.log(age)
+        console.log(TC)
+        console.log(notify)
+
+
+        localStorage.setItem("user_email",email)
+        localStorage.setItem("user_password",password)
+        localStorage.setItem("user_name",name)
+        localStorage.setItem("user_age",age)
+  
+        
+
+
+
+        window.location.href ="../login page/log in.html"  
+    
+    }
+
+        </script>
+
+
     </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trending Track</title>
     <link rel="stylesheet" href="../../assets/css/trending style.css">
     <link
@@ -34,7 +35,7 @@
         <a href="../cart/cart.html"><img class="carticon" src="../../assets/img/icons8-shopping-cart-60.png" alt="cart icon"></a>
     </div>
 
-
+  <div class="content">
     <div class="spotify-playlists">
         <h2>Trending Songs</h2>
         <div class="list">
@@ -67,7 +68,7 @@
       </div>
 
 
-      <div class="spotify-playlists">
+      <!-- <div class="spotify-playlists">
     
         <div class="list">
           <div class="item">
@@ -96,7 +97,7 @@
             <p>Artist name, BPM, KEY, details</p>
           </div>
         </div>
-      </div>
+      </div>  
 
       <div class="spotify-playlists">
     
@@ -189,9 +190,9 @@
             <p>Artist name, BPM, KEY, details</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="spotify-playlists">
+      <!-- <div class="spotify-playlists">
     
         <div class="list">
           <div class="item">
@@ -220,9 +221,9 @@
             <p>Artist name, BPM, KEY, details</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
-
+</div>
 
       <div class="music-player">
         <div class="song-bar">
@@ -269,6 +270,43 @@
             </div>
         </div>
     </div>
+    <script>
+
+    const song=[
+      {
+        "image":"https://i.scdn.co/image/ab67616d00001e0244aa56e23e3a89802e6c6347",
+        "trackname":"Sicko beat",
+        "detail":"travis,120,Fmin",
+      },
+
+
+
+
+
+
+
+
+
+    ]
+
+
+
+
+      track=document.createElement("div");
+      track.setAttribute("class","item");
+      console.log(track);
+
+      track_poster=document.createElement("img");
+      track_poster.setAttribute("src","https://i.scdn.co/image/ab67616d00001e0244aa56e23e3a89802e6c6347");
+      track_poster.setAttribute("alt","track Poster");
+      console.log(track_poster);
+
+
+
+
+
+
+    </script>
      
      
     

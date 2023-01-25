@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>buyer's homepage</title>
     <link rel="stylesheet" href="../../assets/css/buyer homepage.css">
     <link
@@ -92,7 +93,7 @@
             
             <div class="productlist">
             
-            <div>
+            <!-- <div>
              <a href="../track listening page/track listening page.html"><img src="../../assets/img/Track image1.jpg" alt=""></a>
              <p>Track name</p>
              <p>Artist name</p>
@@ -112,10 +113,7 @@
               <p> Track name</p>
               <p>Artist name</p>
             </div>
-            </div>
-            <div class="productlist">
-            
-              <div>
+            <div>
               <a href="../track listening page/track listening page.html"><img src="../../assets/img/cover1.png" alt=""></a>
                <p> Track name</p>
                <p>Artist name</p>
@@ -134,31 +132,13 @@
               <a href="../track listening page/track listening page.html"><img src="../../assets/img/cover4.png" alt=""></a>
                 <p> Track name</p>
                 <p>Artist name</p>
-              </div>
-              </div>
-              <div class="productlist">
+              </div> -->
+          </div>
             
-                <div>
-                  <a href="../track listening page/track listening page.html"> <img src="../../assets/img/cover5.png" alt=""></a>
-                 <p> Track name</p>
-                 <p>Artist name</p>
-                </div>
-                <div>
-                  <a href="../track listening page/track listening page.html"><img src="../../assets/img/cover6.png" alt=""></a>
-                 <p> Track name</p>
-                 <p>Artist name</p>
-                </div>
-                <div>
-                  <a href="../track listening page/track listening page.html"><img src="../../assets/img/cover7.png" alt=""></a>
-                 <p> Track name</p>
-                 <p>Artist name</p>
-                </div>
-                <div>
-                  <a href="../track listening page/track listening page.html"><img src="../../assets/img/cover9.png" alt=""></a>
-                  <p> Track name</p>
-                  <p>Artist name</p>
-                </div>
-                </div>
+            
+              
+              
+              
                 <a href="../more artist page.html"><i class="fa-sharp fa-solid fa-ellipsis" style="color: white; font-size: 30px;"></i></a>
           </div>
           <div class="secondright">
@@ -200,11 +180,11 @@
           </div>
           <div class="progress-controller">
               <div class="control-buttons">
-                  <i class="fas fa-random"></i>
+                  <i id="hide" class="fas fa-random"></i>
                   <i class="fas fa-step-backward"></i>
                   <i class="play-pause fas fa-play"></i>
                   <i class="fas fa-step-forward"></i>
-                  <i class="fas fa-undo-alt"></i>
+                  <i id="hide"class="fas fa-undo-alt"></i>
               </div>
               <div class="progress-container">
                   <span>0:39</span>
@@ -225,6 +205,120 @@
               </div>
           </div>
       </div>
+      
+      
+      <script>
+       
+        const trackproduct=[
+          {
+          "Image":"../../assets/img/cover4.png",
+          "trackname":"beat001",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover1.png",
+          "trackname":"beat002",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover2.png",
+          "trackname":"hard 001",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover3.png",
+          "trackname":"fresh beat",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover5.png",
+          "trackname":"beatsworld",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover6.png",
+          "trackname":"soultype",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover7.png",
+          "trackname":"Blue eyes",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover10.png",
+          "trackname":"post type",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover5.png",
+          "trackname":"sixnine",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover7.png",
+          "trackname":"good",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover4.png",
+          "trackname":"ariana",
+          "artistname":"justin",
+        },
+        {
+          "Image":"../../assets/img/cover1.png",
+          "trackname":"T-gan",
+          "artistname":"justin",
+        }
+
+
+        ]
+
+
+
+        
+       
+      
+        for(let i=0;i<12;i++){
+          
+        track=document.createElement("div");
+        console.log(track);
+        
+
+        product_image=document.createElement("img");
+        product_image.setAttribute("src",trackproduct[i]["Image"]);
+        track.append(product_image);
+        
+        trackname=document.createElement("p");
+        trackname.innerText=trackproduct[i]["trackname"];
+        track.append(trackname);
+
+        artistname=document.createElement("p");
+        artistname.innerText=trackproduct[i]["artistname"];
+        track.append(artistname);
+
+
+        document.querySelector("div.productlist").append(track);
+        }
+
+      
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+      </script>
     
 
     </body>
