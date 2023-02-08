@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <body>
+        <form onsubmit="signUp(event)">
         <div id="object"class="section">           
         <div id="object" class="popup">
             <h1>SIGN UP</h1>
@@ -44,7 +45,7 @@
             <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
             <div class="select2">
                 <button type="reset" style="background-color:red; color: white; cursor: pointer;">Reset</button> 
-                <button type="button" onclick="sub()" style="background-color:green; cursor: pointer;">Sign Up</button>
+                <button type="submit"  onsubmit="signUp(event)" style="background-color:green; cursor: pointer;">Sign Up</button>
             </div>
             <div>
 
@@ -52,39 +53,87 @@
         </div>
 
 </div> 
-
+</form>
 
          <script>
+            // let users=[];
+            
+            // let exist = users.find(users => 
+            
+            // users.email===email.value
+            
+            // ) 
 
-            function sub(){
-        const email = document.getElementById("email").value  
-        const password = document.getElementById("password").value 
-        const name = document.getElementById("name").value
-        const age = document.getElementById("age").value
-        const TC = document.getElementById("T&C").value
-        const notify = document.getElementById("notice").value  
-              
-        
-        console.log(email)
-        console.log(password)
-        console.log(name)
-        console.log(age)
-        console.log(TC)
-        console.log(notify)
+    //         function sub(){
+    //     const email = document.getElementById("email").value  
+    //     const password = document.getElementById("password").value 
+    //     const name = document.getElementById("name").value
+    //     const age = document.getElementById("age").value
+    //     // const TC = document.getElementById("T&C").value
+    //     // const notify = document.getElementById("notice").value
 
-
-        localStorage.setItem("user_email",email)
-        localStorage.setItem("user_password",password)
-        localStorage.setItem("user_name",name)
-        localStorage.setItem("user_age",age)
-  
         
 
+    //     if(!exist){
+    //         users.push({email,password,name,age,});
 
+    //     const userData=JSON.stringify(users);
 
-        window.location.href ="../login page/log in.html"  
+    //     localStorage.setItem("users",userData);
+
+    //     alert('Account created Successfully');
+
+    //     location.href = "../login page/log in.html";
+
+    //     // localStorage.setItem("user_email",email)
+    //     // localStorage.setItem("user_password",password)
+    //     // localStorage.setItem("user_name",name)
+    //     // localStorage.setItem("user_age",age)
+
+    //     // window.location.href ="../login page/log in.html"  
     
+    // }else{
+    //     alert('Sorry the User already Exist!! \n Try with different Phone number or email');
+
+    // }
+// }
+
+    function signUp (e) {
+        
+    let user_email = document.getElementById("email").value;
+        user_password = document.getElementById("password").value;
+        user_name = document.getElementById("name").value;
+        user_age = document.getElementById("age").value;
+      
+    let user_list = JSON.parse(localStorage.getItem('user_list')) || [];
+    let exist = 
+        JSON.parse(localStorage.getItem('user_list')).some(data =>
+            data.user_password.toLowerCase() == user_password.toLowerCase() ||
+            data.user_email.toLowerCase() == user_email.toLowerCase()
+        );
+    if(!exist){
+        user_list.push({ user_name,  user_email, 
+                        user_password, user_age });
+        localStorage.setItem('user_list', JSON.stringify(user_list));
+        console.log(localStorage.getItem('user_list'));
+        document.querySelector('form').reset();
+        document.getElementById('password').focus();
+        document.getElementById('email').focus();
+        document.getElementById('age').focus();
+        document.getElementById('name').focus();
+        alert('Account created Successfully');
+        location.href = "../login page/log in.html";
     }
+    else{
+        alert('Sorry the User already Exist!! \n Try with different Phone number or email or try login');
+        document.querySelector('form').reset();
+        windows.location.href = "../login page/log in.html";
+
+    }
+    
+    
+}
+
 
         </script>
 
