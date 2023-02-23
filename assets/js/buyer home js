@@ -1,0 +1,290 @@
+const musicContainer = document.querySelector('.music-player');
+    const artistName= document.querySelector('.artist');
+    const playBtn = document.querySelector('.play-pause.fas'); 
+    const nextBtn = document.querySelector('.next.fas');
+    const pevBtn = document.querySelector('.pev.fas');
+    const audio = document.querySelector('#audio');audio.pause()
+    const progress = document.querySelector('.progress');
+    const progressContainer = document.querySelector('.progress-container');
+    const progressbar = document.querySelector('.progress-bar');
+    const title = document.querySelector('.title1');
+    const songImage = document.querySelector('#cover');
+    const likeBtn = document.querySelector('#like'); 
+    const sound = document.querySelector('#voume');
+    console.log(sound)
+    
+    
+    
+    
+  
+    // song names
+
+    const songNames = ['remix kingdom', 'pop', 'pop2']
+
+    //numbers the song 
+
+    let songIndex = 2
+
+
+    // now we need to define the function 
+
+    function loadsong(song) {
+      title.innerText = song
+      audio.src = `../../assets/audio/${song}.mp3`
+      songImage.src = `../../assets/img/${song}.jpg`
+
+    }
+
+    // now we need to load the song 
+
+    loadsong(songNames[songIndex])
+
+    // need to add progress event
+    
+    function updateProgress(e) {
+      const { duration, currentTime} = e.srcElement
+      const progressPercent = (currentTime / duration) * 100
+      progress.style.width = `${progressPercent}%`
+      
+      }
+      
+    
+    // load on the progress bar 
+
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    
+
+    // starting time function 
+
+    function starttime(){
+      // const audio= document.querySelector("audio")
+      const duration=audio.duration
+      const currentTime= audio.currentTime
+      const progress= currentTime/duration * 100
+
+      const totalTime = `${Math.floor( duration/ 60)}:${(`${Math.floor(duration)}`).slice(1)}`
+      const current_play_time= `${Math.floor(currentTime / 60)}:${(`0${Math.floor(currentTime%60)}`).slice(-2)}`;
+
+      document.querySelector('.start').innerHTML = current_play_time
+      document.querySelector('.end').innerHTML =  totalTime
+     
+    }
+
+    setInterval(starttime,500)
+    
+    // pevSong event  
+
+    function prevSong(){
+      
+      songIndex--
+      if (songIndex < 0){
+        songIndex = songNames.length-1
+      }     
+      loadsong(songNames[songIndex])
+      
+      
+    }
+    // next song function when we click it. it will move to the next song
+     
+    function nextSong(){
+      songIndex++
+      if (songIndex > songNames.length-1){
+        songIndex = 0
+      }     
+      loadsong(songNames[songIndex])
+
+
+    }
+
+    // function togglePlayPauseButton(event) and all events  {
+
+
+      playBtn.addEventListener("click", (event) => {
+      
+      const el = event.target;
+      // checking if the song is playing or not 
+
+      
+      el.classList.toggle("playing")
+
+      if (!el.classList.contains("playing")) {
+        el.classList.add("fa-play")
+        el.classList.remove("fa-pause")
+        audio.pause()
+      } else {
+        el.classList.add("fa-pause")
+        el.classList.remove("fa-play")
+        audio.play()
+      }
+
+    })
+
+    // we need the like to be created 
+    
+    function likesong(){
+      
+      likeBtn.classList.toggle("fa-solid")
+    
+    }
+    // volume control function on music player.
+    
+    
+    sound.setAttribute("data-test","mute");
+    
+    function volumeMute(e){
+        const find= e.target
+          
+      if(!find.dataset.contains("unmute")){
+            // sound.removeAttribute("data-test","mute");
+            // sound.setAttribute("data-test","unmute")
+            audio.volume = 0;
+      }
+      else{
+        // sound.getAttribute("data-test","unmute")
+        // sound.removeAttribute("data-test","unmute");
+        // sound.setAttribute("data-test","mute")
+        audio.volume = 1;
+      }
+          
+    }
+
+    
+      // function soundUnmute(){
+      //   audio.volume = 1;
+      // }
+    
+
+    
+     audio.addEventListener('timeupdate', updateProgress);
+     progressbar.addEventListener('click', setProgress);
+     pevBtn.addEventListener("click", prevSong,);
+     nextBtn.addEventListener("click",nextSong,);
+     likeBtn.addEventListener('click',likesong);
+     sound.addEventListener("click", volumeMute);
+     
+     
+
+     
+    const trackproduct = [
+      {
+        "Image": {
+          source: "../../assets/img/cover4.png",
+        },
+        "trackname": "beat001",
+        "artistname": "justin",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover1.png"
+        },
+        "trackname": "beat002",
+        "artistname": "thamim",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover2.png"
+        },
+        "trackname": "hard 001",
+        "artistname": "tommy",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover3.png"
+        },
+        "trackname": "fresh beat",
+        "artistname": "vignesh",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover5.png"
+        },
+        "trackname": "beatsworld",
+        "artistname": "ajun",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover6.png"
+        },
+        "trackname": "soultype",
+        "artistname": "j cole",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover7.png"
+        },
+        "trackname": "Blue eyes",
+        "artistname": "ji ji",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover10.png"
+        },
+        "trackname": "post type",
+        "artistname": "modi ji",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover5.png"
+        },
+        "trackname": "sixnine",
+        "artistname": "anil",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover7.png"
+        },
+        "trackname": "good",
+        "artistname": "turtle",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover4.png"
+        },
+        "trackname": "ariana",
+        "artistname": "beyonce",
+      },
+      {
+        "Image": {
+          source: "../../assets/img/cover1.png"
+        },
+        "trackname": "T-gan",
+        "artistname": "painkiller",
+      }
+
+
+    ]
+
+
+    let track;
+    let product_image;
+
+    let loadData = JSON.parse(localStorage.getItem('trackName'))
+
+
+
+
+    for (let i = 0; i < 12; i++) {
+
+      track = document.createElement("div");
+  
+      product_image = document.createElement("img");
+      product_image.setAttribute("src", trackproduct[i]["Image"]["source"]);
+      track.append(product_image);
+
+      trackname = document.createElement("p");
+      trackname.innerText = loadData[i]["track name"];
+      track.append(trackname);
+
+      artistname = document.createElement("p");
+      artistname.innerText = trackproduct[i]["artistname"];
+      track.append(artistname);
+
+
+      document.querySelector("div.productlist").append(track);
+    }

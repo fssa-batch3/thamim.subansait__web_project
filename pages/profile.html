@@ -267,29 +267,29 @@
             
           </div>
           <div class="rightside">
-            <h1>Profile</h1>
+            <h1 id="editpro">Profile</h1>
             <div class="card1">
               <img loading="lazy"src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png" alt="profile avatar">
               </div> 
               <div class="input">
               <h2>Email</h2>
-              <input  type="email" id="user_email">
+              <input  type="email" id="email"  disabled>
             </div>
             <div class="input1">
               <h2>Password</h2>
-              <input type="password" id="user_password">
+              <input type="password" id="password" class="read" readonly>
             </div>
-            <div class="input">
+            <div class="input"> 
               <h2>Name</h2>
-              <input type="text" id="user_name">
+              <input type="text" id="name"class="read" readonly>
             </div>
             <div class="input2">
               <h2>Age</h2>
-              <input type="text" id="user_age"  readonly>
+              <input type="text" id="age" disabled>
             </div>
             <div class="btn">
             <button type="button" class="btn1">Edit</button>
-            <button type="button" class="btn2">Save</button>
+            <button type="button" class="btn2" id="sav" style="display: none;">Save</button>
             <button type="button" class="btn3">Log Out</button>
             </div>
 
@@ -527,22 +527,85 @@
 
         <script>
        
-       const email = localStorage.getItem("user_email");
-       const password = localStorage.getItem("user_password");
-       const name = localStorage.getItem("user_name");
-       const age = localStorage.getItem("user_age")
+      //  const email = localStorage.getItem("user_email");
+      //  const password = localStorage.getItem("user_password");
+      //  const name = localStorage.getItem("user_name");
+      //  const age = localStorage.getItem("user_age")
 
-       document.getElementById("user_email").value = email
-       document.getElementById("user_name").value = name
-       document.getElementById("user_password").value = password
-       document.getElementById("user_age").value = age
+      //  document.getElementById("user_email").value = email
+      //  document.getElementById("user_name").value = name
+      //  document.getElementById("user_password").value = password
+      //  document.getElementById("user_age").value = age
        
        
-       console.log(email);
-       console.log(name);
-       console.log(passsword);
-       console.log(age);
+      //  console.log(email);
+      //  console.log(name);
+      //  console.log(passsword);
+      //  console.log(age);
+
+      
+      let userEmail = JSON.parse(localStorage.getItem("userEmail"));
+      let user_list=JSON.parse(localStorage.getItem("user_list"));
+
+      function findArtist(e){
+          return e.user_email==userEmail;
+
+      }
+
+      let artist_data = user_list.find(findArtist);
+
+      document.getElementById("email").value = artist_data['user_email'];
+      document.getElementById("password").value = artist_data['user_password'];
+      document.getElementById("name").value = artist_data['user_name'];
+      document.getElementById("age").value = artist_data['user_age']+" years old";
+        
      
+     
+      function update(e){
+                 // getting the updated data from the input field
+                let update_name = document.getElementById("name").value
+                let update_password= document.getElementById("password").value
+                // paste the updated data to the correct object
+                artist_data['user_name'] = update_name;
+                artist_data["user_password"] = update_password;
+                // again paste it to the
+                localStorage.setItem("user_list", JSON.stringify(user_list));             
+            }
+          
+
+          // edit page
+          const sumbit =document.querySelector(".btn2");
+          sumbit.addEventListener("click",update)
+          sumbit.addEventListener("click",findReadonly1)
+
+
+
+      function findReadonly(e){
+        
+        document.getElementById("password").removeAttribute("readonly");
+        document.getElementById("name").removeAttribute("readonly");
+        document.querySelector(".btn2").removeAttribute("style");
+        document.querySelector(".btn1").setAttribute("style","display:none");
+
+      }
+
+      function findReadonly1(e){
+        
+        document.getElementById("password").setAttribute("readonly","true");
+        document.getElementById("name").setAttribute("readonly","true");
+        document.querySelector(".btn2").setAttribute("style","display:none");
+        document.querySelector(".btn1").setAttribute("style","display:inline");
+        
+
+      }
+
+
+      const editThing = document.querySelector(".btn1");
+      editThing.addEventListener("click",findReadonly);
+      
+
+
+
 
         </script>
         

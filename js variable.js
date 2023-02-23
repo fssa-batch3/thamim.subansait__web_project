@@ -1,10 +1,10 @@
 
 
-// let string = "";
-// for(let i = 5; i >=1;i--){
-//     string+= i+ " ";
-// }
-// console.log(string);
+let string = "";
+for(let i = 5; i >=1;i--){
+    string+= i+ " ";
+}
+console.log(string);
 
 // let n=7;
 // let string = "";
@@ -160,27 +160,27 @@
 // // repeating code
 // series(n);
 
-// let n=5
-// let str="";
-// for(let i=n;i>2;i--){
-//   str += i+"."
-//   console.log(str)
-// }
+let n=5
+let str="";
+for(let i=n;i>2;i--){
+  str += i+"."
+  console.log(str)
+}
 
-const objectsArray = [
-  { id: 1, name: "Object 1" },
-  { id: 2, name: "Object 2" },
-  { id: 3, name: "Object 3" }
-];
-// Convert the array of objects to a string using JSON.stringify()
+// const objectsArray = [
+//   { id: 1, name: "Object 1" },
+//   { id: 2, name: "Object 2" },
+//   { id: 3, name: "Object 3" }
+// ];
+// // Convert the array of objects to a string using JSON.stringify()
 
-const objectsArrayString = JSON.stringify(objectsArray);
+// const objectsArrayString = JSON.stringify(objectsArray);
 
-// Store the string in local storage
-localStorage.setItem("objectsArray", objectsArrayString);
+// // Store the string in local storage
+// localStorage.setItem("objectsArray", objectsArrayString);
 
-// Get the string from local storage
-const oaString = localStorage.getItem("objectsArray");
-//Convert the string back to an array of objects using JSON.parse()
-const oArray = JSON.parse(objectsArrayString);
+// // Get the string from local storage
+// const oaString = localStorage.getItem("objectsArray");
+// //Convert the string back to an array of objects using JSON.parse()
+// const oArray = JSON.parse(objectsArrayString);
 

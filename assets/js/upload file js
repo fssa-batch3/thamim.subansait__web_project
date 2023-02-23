@@ -1,0 +1,71 @@
+function getData(){
+    let name = document.getElementById("popo").value
+        bpm = document.getElementById("popo1").value
+        genre = document.getElementById("popo2").value
+        audio = document.querySelector(".audio_source").value
+        image = document.querySelector(".image_source").value
+        detail = document.getElementById("text1").value
+        price = document.getElementById("Price").value;
+
+    // let track_list = [];
+        
+    let trackData =JSON.parse(localStorage.getItem('trackName')) ||[];
+
+    // let exist = dishData.length && 
+    //     JSON.parse(localStorage.getItem("dishData")).some(data=>
+    //         data.dishes == dishes);
+
+    // if(!exist){
+    //     
+        trackData.push({"track name":name, "bpm": bpm, "genre": genre, "detail": detail, "price":price});
+        localStorage.setItem("trackName",JSON.stringify(trackData));
+        console.log(trackData);
+        location.href="../homepage/buyer homepage.html"
+
+    //     // after store data, reset form
+    //     document.querySelector("form").reset();
+    //     document.getElementById("dishName").focus();
+    //     alert("Dish added Sucessfully :white_check_mark:");
+    // }
+    // else {
+    //     alert("Sorry the Dish already Exist!! \n Try with different Dish or Menu or Category");
+    //     document.querySelector("form").reset();
+    // }
+
+   
+
+      }
+
+
+      document.getElementById("list").addEventListener("click",getData)
+
+
+    document.querySelector (".image_source").addEventListener("change", function () {
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+
+      localStorage.setItem("track-image", reader.result);
+
+        });
+      reader.readAsDataURL (this.files[0]);
+      });
+
+
+      document.querySelector (".audio_source").addEventListener("change", function () {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+
+      localStorage.setItem("audio_file", reader.result);
+
+        });
+      reader.readAsDataURL (this.files[0]);
+      });
+
+
+  
+      
+    //   document.addEventListener("DOMContentLoaded",() => {
+    //   const trackImg = localStorage.getItem("track-image")
+    //   document.querySelector("#track_image").setAttribute("src",trackImg)
+    // })

@@ -202,13 +202,14 @@ h1{
     background-color: #ff0088;
     color: #ffffff;
     outline: none;
-    cursor: pointer;
     width: 90px;
 }
 #fileInputField{
      position: relative;
-     left: 210px;
+     left: 100px;
+     bottom: 50px;
      opacity: 0;
+     
 }
 .below{
     display: flex;

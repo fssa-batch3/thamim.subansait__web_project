@@ -16,7 +16,7 @@
         <h1>Login</h1>
         <div class="btn">
             <div class="box">
-            <input class="op1" type="text" name="username" placeholder="Useremail" id="email" required>
+            <input class="op1" type="text" name="username" placeholder="User Email" id="email" required>
             <div>
             <input class="op1"  type="password" name="password" id="password" placeholder="Password" required>
             </div>
@@ -44,13 +44,14 @@
     let exist = user_list.length &&
     JSON.parse(localStorage.getItem('user_list')).some(data =>
         data.user_email.toLowerCase() == user_email &&
-        data.user_password.toLowerCase() == user_password);
+        data.user_password == user_password);
     if(!exist){
         alert("Incorrect login credentials");
     }
     else{
+        localStorage.setItem("userEmail",JSON.stringify(user_email))
         alert("Your login in successful");
-        location.href = "../homepage/buyer homepage.html";
+        location.href = "../profile.html";
     }
     e.preventDefault();
 }

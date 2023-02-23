@@ -213,7 +213,7 @@
         </div>
       </div>
       <div class="icons">
-        <i class="far fa-heart"></i>
+        <i class="far fa-heart fa-1x" id="like"></i>
         <i class="fas fa-compress"></i>
       </div>
     </div>
@@ -221,7 +221,7 @@
     <div class="progress-controller">
       <div class="control-buttons">
         <i id="hide" class="fas fa-random"></i>
-        <i class="pev fas fa-step-backward"></i>
+        <i class="pev fas fa-step-backward" ></i>
         <i class="play-pause fas fa-play"></i>
         <i class="next fas fa-step-forward"></i>
         <i id="hide" class="fas fa-undo-alt"></i>
@@ -231,266 +231,24 @@
         <div class="progress-bar">
           <div class="progress"></div>
         </div>
-        <span>0:00</span>
+        <span class="end">0:00</span>
       </div>
     </div>
     <div class="other-features">
       <i class="fas fa-list-ul"></i>
       <i class="fas fa-desktop"></i>
       <div class="volume-bar">
-        <i class="fas fa-volume-down"></i>
+        <i class="fas fa-volume-down" id="voume"></i>
         <div class="progress-bar">
-          <div class="progress"></div>
+          <div class="volumeProgress"></div>
         </div>
       </div>
     </div>
   </div>
 
 
-  <script>
-
-    const musicContainer = document.querySelector('.music-player');
-    const playBtn = document.querySelector('.play-pause.fas'); 
-    const nextBtn = document.querySelector('.next.fas');
-    const pevBtn = document.querySelector('.pev.fas');
-    console.log(playBtn)
-    const audio = document.querySelector('#audio');audio.pause()
-    const progress = document.querySelector('.progress');
-    const progressContainer = document.querySelector('.progress-container');
-    const title = document.querySelector('.title1');
-    const songImage = document.querySelector('#cover');
-    const startingTime= document.querySelector('.progress-container.start');
-    
-
-    // song names
-
-    const songNames = ['remix kingdom', 'pop', 'pop2']
-
-    //numbers the song 
-
-    let songIndex = 1
-
-
-    // now we need to define the function 
-
-    function loadsong(song) {
-      title.innerText = song
-      audio.src = `../../assets/audio/${song}.mp3`
-      songImage.src = `../../assets/img/${song}.jpg`
-
-    }
-
-    // now we need to load the song 
-
-    loadsong(songNames[songIndex])
-
-    // need to add progress event
-    
-    function updateProgress(e) {
-      const { duration, currentTime} = e.srcElement
-      const progressPercent = (currentTime / duration) * 100
-      progress.style.width = `${progressPercent}%`
-      }
-    // starting time function 
-
-    function startTime(e){
-      const time = e.srcElement.currentTime;
-      startingTime.innerHTML=`${time}`;
-    }
-    
-
-
-    // function togglePlayPauseButton(event) and all events  {
-
-
-      playBtn.addEventListener("click", (event) => {
-      console.log(event)
-      const el = event.target;
-      // checking if the song is playing or not 
-
-      console.log(el.classname)
-      el.classList.toggle("playing")
-
-      if (!el.classList.contains("playing")) {
-        el.classList.add("fa-play")
-        el.classList.remove("fa-pause")
-        audio.pause()
-      } else {
-        el.classList.add("fa-pause")
-        el.classList.remove("fa-play")
-        audio.play()
-      }
-
-    })
-
-
-    // pevSong event  
-    //  pevBtn.addEventListener("click", prevSong)
-
-    // change song event 
-
-    //  nextBtn.addEventListener("click", nextSong)
-
-    // progress event 
-
-     audio.addEventListener('timeupdate', updateProgress)
-     audio.addEventListener('timeupdate', startTime)
-
-    
-
-
-
+  <script src="../../assets/js/buyer home js"></script>
   
-    
-
-
-
-
-
-
-
-
-
-
-    const trackproduct = [
-      {
-        "Image": {
-          source: "../../assets/img/cover4.png",
-          alt: ""
-        },
-        "trackname": "beat001",
-        "artistname": "justin",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover1.png"
-        },
-        "trackname": "beat002",
-        "artistname": "thamim",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover2.png"
-        },
-        "trackname": "hard 001",
-        "artistname": "tommy",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover3.png"
-        },
-        "trackname": "fresh beat",
-        "artistname": "vignesh",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover5.png"
-        },
-        "trackname": "beatsworld",
-        "artistname": "ajun",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover6.png"
-        },
-        "trackname": "soultype",
-        "artistname": "j cole",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover7.png"
-        },
-        "trackname": "Blue eyes",
-        "artistname": "ji ji",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover10.png"
-        },
-        "trackname": "post type",
-        "artistname": "modi ji",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover5.png"
-        },
-        "trackname": "sixnine",
-        "artistname": "anil",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover7.png"
-        },
-        "trackname": "good",
-        "artistname": "turtle",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover4.png"
-        },
-        "trackname": "ariana",
-        "artistname": "beyonce",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover1.png"
-        },
-        "trackname": "T-gan",
-        "artistname": "painkiller",
-      }
-
-
-    ]
-
-
-    let track;
-    let product_image;
-
-
-
-
-    for (let i = 0; i < 12; i++) {
-
-      track = document.createElement("div");
-      console.log(track);
-
-
-      product_image = document.createElement("img");
-      product_image.setAttribute("src", trackproduct[i]["Image"]["source"]);
-      track.append(product_image);
-
-      trackname = document.createElement("p");
-      trackname.innerText = trackproduct[i]["trackname"];
-      track.append(trackname);
-
-      artistname = document.createElement("p");
-      artistname.innerText = trackproduct[i]["artistname"];
-      track.append(artistname);
-
-
-      document.querySelector("div.productlist").append(track);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </script>
 
 
 </body>

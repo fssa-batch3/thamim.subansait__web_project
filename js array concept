@@ -1,0 +1,14 @@
+let a=[5,80,4,4,8,12,31]
+let x=10;
+let found =false;
+for(let i=0; i<=a.length;i++){
+  if(x===a[i]){
+    found=true;
+    break;
+  }
+}
+if(found){
+  console.log(x+" "+"is found")
+}else{
+  console.log(x+" "+"is not found");
+}

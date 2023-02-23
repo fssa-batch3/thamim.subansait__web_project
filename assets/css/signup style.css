@@ -36,12 +36,37 @@ body {
        margin-left: 10px;     
 }
 .space{
-    padding: 10px;
+    padding: 5px;
+    margin-left: 10px;
 
 }
+.space input{
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+/* .space input:focus{ 
+    border: 2px solid red;
+    outline: none;
+} */
+.space input:valid{
+    border: 2px solid black;
+}
+.space input:invalid{
+    border: 2px solid red;
+}
 .space1{
-    padding: 10px;
+    padding: 5px;
     margin-right: 5px;
+}
+.space1 input{
+    padding: 5px;
+    border: 2px solid red;
+    border-radius: 4px;
+}
+.space1 input:focus{ 
+    border: 2px solid red;
+    outline: none;
 }
 
 .space2{

@@ -41,20 +41,22 @@
     <div id="dragger_wrapper">
       <div id="dragger">
           <div class="icon"><i class="fa-solid fa-images"></i></div>
-          <h2 id="drag-text">Drag and Drop File</h2>
+          <h2 id="drag-text">Drag and Drop image</h2>
           <h3>Or</h3> 
-          <button class="browseFile" id="browseFile">Browse File</button><input type="file" id="fileInputField" /> 
+          <button class="browseFile" id="browseFile">Browse File</button><input type="file" id="fileInputField" class="image_source" /> 
           
       </div>
-        
+      
     </div>
 
     <div id="dragger_wrapper1">
       <div id="dragger1">
+          <img id="track_image" src="" alt=""> 
           <div class="icon1"><i class="fa-sharp fa-solid fa-plus"></i></div>
-          <h2 id="drag-text">Drag and Drop image</h2>
+          <h2 id="drag-text">upload audio File</h2>
           <h3>Or</h3> 
-          <button class="browseFile" id="browseFile">Browse File</button><input type="file" id="fileInputField" /> 
+          <button class="browseFile" id="browseFile">Browse File</button><input type="file" id="fileInputField" class="audio_source" />
+          
           
       </div>
         
@@ -85,25 +87,14 @@
                </select>
             </div>
             <div class="right">
-              <input type="number" min="0"  max="100" placeholder="$ Set Price">
-              <a href="../homepage/seller homepage.html" style="text-decoration: none;"><button type="button">List IT</button></a>
+              <input type="number" min="0"  max="100" placeholder="$ Set Price" id="Price">
+              <button type="button" id="list">List IT</button><a href=""></a>
 
             </div>
       </div>
       <textarea id="text1" cols="85" rows="6"> Tell the license details</textarea>
-     <script> 
 
-        const name = document.getElementById("popo").value
-        const bpm = document.getElementById("popo1").value
-        const genre = document.getElementById("popo2").value
-             
-        console.log(name)
-        console.log(bpm)
-        console.log(genre)
-
-
-
-     </script>
+     <script src="../../assets/js/upload file js"></script>
 
     </body>
     </html>
