@@ -24,8 +24,8 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 * Product create
 * productist showing
-* edit product detail
-* delete product detail
+* edit product 
+* delete product 
 
 # Music Player:
 
