@@ -22,7 +22,7 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 # user CRUD:
 
-* user sign up 
+* user sign up
 * user login 
 * user profile
 * user edit and update data in profile page
@@ -36,7 +36,7 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 # Music Player:
 
-* image can change 
+* Image loading and changing according to song detail. 
 * song Loading function.
 * progress bar
 * duration
@@ -47,5 +47,6 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * play and pause song. 
 * load current time and direct to the current audio.
 * load audio in local storage. 
+
 
 
