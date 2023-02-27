@@ -7,17 +7,9 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 # Market research
 
-https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
-
 # problem statement
 
 https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
-
-
-
-
-
-
 
 
 # user CRUD:
@@ -33,6 +25,7 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * Product create
 * productist showing
 * edit product detail
+* delete product detail
 
 # Music Player:
 
@@ -43,10 +36,18 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * update progress bar.
 * previous and next song function.
 * volume mute function.
-* volume unmute function.
-* play and pause song. 
-* load current time and direct to the current audio.
-* load audio in local storage. 
+
+#seller profile CRUD
+
+* seller sign up
+* seller login 
+* seller profile page
+* seller edit and update data in profile page
+* seller Delete account
+
+
+
+
 
 
 
