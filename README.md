@@ -4,3 +4,48 @@
 
 # wireframe link
 https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
+
+# Market research
+
+https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
+
+# problem statement
+
+https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
+
+
+
+
+
+
+
+
+# user CRUD:
+
+* user sign up 
+* user login 
+* user profile
+* user edit and update data in profile page
+* user Delete account
+
+# product CRUD:
+
+* Product create
+* productist showing
+* edit product detail
+
+# Music Player:
+
+* image can change 
+* song Loading function.
+* progress bar
+* duration
+* update progress bar.
+* previous and next song function.
+* volume mute function.
+* volume unmute function.
+* play and pause song. 
+* load current time and direct to the current audio.
+* load audio in local storage. 
+
+
