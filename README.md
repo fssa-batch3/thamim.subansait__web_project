@@ -36,15 +36,10 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * update progress bar.
 * previous and next song function.
 * volume mute function.
-
-# seller profile CRUD
-
-* seller sign up
-* seller login 
-* seller profile page
-* seller edit and update data in profile page
-* seller Delete account
-
+* volume unmute function.
+* play and pause song. 
+* load current time and direct to the current audio.
+* load audio in local storage. 
 
 
 
