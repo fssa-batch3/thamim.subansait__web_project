@@ -39,7 +39,7 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * volume unmute function.
 * play and pause song. 
 * load current time and direct to the current audio.
-* load audio in local storage. 
+* load audio in local storage.
 
 
 
