@@ -41,6 +41,13 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * load current time and direct to the current audio.
 * load audio in local storage.
 
+# user song history
+
+* Liked Tracks
+* Save Later Tracks
+* Recently Played Tracks.
+* Bought Tracks.
+
 
 
 
