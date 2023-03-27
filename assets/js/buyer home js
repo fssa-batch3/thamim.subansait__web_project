@@ -214,4 +214,6 @@ volumeBar.addEventListener('mousemove', (event) => {
 document.addEventListener('mouseup', () => {
   isDragging = false;
 });
+
+
     
