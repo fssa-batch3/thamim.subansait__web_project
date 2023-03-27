@@ -7,14 +7,22 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 # Market research
 
+https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
+
 # problem statement
 
 https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 
+
+
+
+
+
+
 # user CRUD:
 
-* user sign up
+* user sign up 
 * user login 
 * user profile
 * user edit and update data in profile page
@@ -24,12 +32,11 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 
 * Product create
 * productist showing
-* edit product 
-* delete product 
+* edit product detail
 
 # Music Player:
 
-* Image loading and changing according to song detail. 
+* image can change 
 * song Loading function.
 * progress bar
 * duration
@@ -40,16 +47,5 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
 * play and pause song. 
 * load current time and direct to the current audio.
 * load audio in local storage.
-
-# user song history
-
-* Liked Tracks
-* Save Later Tracks
-* Recently Played Tracks.
-* Bought Tracks.
-
-
-
-
 
 

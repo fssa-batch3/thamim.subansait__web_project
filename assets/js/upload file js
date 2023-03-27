@@ -1,11 +1,18 @@
-function getData(){
+
+function getData(){  
     let name = document.getElementById("popo").value
         bpm = document.getElementById("popo1").value
-        genre = document.getElementById("popo2").value
+        key = document.getElementById("popo2").value
+        genre = document.querySelector(".genre").value 
         audio = document.querySelector(".audio_source").value
         image = document.querySelector(".image_source").value
         detail = document.getElementById("text1").value
         price = document.getElementById("Price").value;
+        product_unique_id = uuidv4();
+
+
+
+       
 
     // let track_list = [];
         
@@ -17,50 +24,115 @@ function getData(){
 
     // if(!exist){
     //     
-        trackData.push({"track name":name, "bpm": bpm, "genre": genre, "detail": detail, "price":price});
+        trackData.push({"trackname":name, "bpm": bpm,"key":key,"genre": genre, "detail": detail, "price":price,"productId":product_unique_id});
         localStorage.setItem("trackName",JSON.stringify(trackData));
         console.log(trackData);
         location.href="../homepage/buyer homepage.html"
-
-    //     // after store data, reset form
-    //     document.querySelector("form").reset();
-    //     document.getElementById("dishName").focus();
-    //     alert("Dish added Sucessfully :white_check_mark:");
-    // }
-    // else {
-    //     alert("Sorry the Dish already Exist!! \n Try with different Dish or Menu or Category");
-    //     document.querySelector("form").reset();
-    // }
-
-   
+        // location.reload()
 
       }
 
+      let ProductID = JSON.parse(localStorage.getItem("productId"));
+      let trackList = JSON.parse(localStorage.getItem("trackName"));
+
+      function findTrack(e){
+        return e.productId==ProductID
+      }
+       NewTrack= trackList.find(findTrack);
+       console.log(NewTrack)
+    
+       function check(e){
+        if(localStorage.getItem("productId")!==null){
+        NewTrack= trackList.find(findTrack);
+       document.getElementById("popo").value=NewTrack["trackname"];
+       document.getElementById("popo1").value=NewTrack["bpm"];
+       document.getElementById("popo2").value=NewTrack["key"];
+       document.querySelector(".genre").value=NewTrack["genre"];
+       document.getElementById("text1").value=NewTrack["detail"];
+       document.getElementById("Price").value=NewTrack["price"];}
+        }
+        window.addEventListener("load",check)
+
+       
+       document.getElementById("list1").removeAttribute("style","display:none")
+       document.getElementById("list1").setAttribute("style","background-color: rgb(135, 0, 0)")
+
 
       document.getElementById("list").addEventListener("click",getData)
+      document.getElementById("list").addEventListener("click",update)
 
 
-    document.querySelector (".image_source").addEventListener("change", function () {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
 
-      localStorage.setItem("track-image", reader.result);
+      function update(e){
+        // getting the updated data from the input field
+        updatename = document.getElementById("popo").value;
+        updatebpm = document.getElementById("popo1").value
+        updatekey = document.getElementById("popo2").value
+        updategenre = document.querySelector(".genre").value 
+        updatedetail = document.getElementById("text1").value
+        updateprice = document.getElementById("Price").value
 
-        });
-      reader.readAsDataURL (this.files[0]);
-      });
+        location.href="../homepage/buyer homepage.html"
+
+       // paste the updated data to the correct object
+       NewTrack["trackname"] = updatename;
+       NewTrack["bpm"] = updatebpm;
+       NewTrack["key"] = updatekey;
+       NewTrack["genre"] = updategenre
+       NewTrack["detail"]=updatedetail
+       NewTrack["price"]=updateprice
+       // again paste it to the
+       localStorage.setItem("trackName", JSON.stringify(trackList)); 
+                   
+   }
+
+   let del_product = document.querySelector("#list1");
+        del_product.addEventListener("click", delData);
+        function delData() {
+            if (confirm("Are you sure?")) {
+                let ProductID = JSON.parse(localStorage.getItem("productId"));
+                let trackList = JSON.parse(localStorage.getItem("trackName"));
+                function find_data(e) {
+                    return e.productId == ProductID;
+                }
+                product_data = trackList.find(find_data);
+                const indexOfproduct = trackList.indexOf(product_data);
+                trackList.splice(indexOfproduct, 1);
+                localStorage.setItem('trackName', JSON.stringify(trackList));
+                location.href="../homepage/buyer homepage.html"
+                
+            };
+        }
+      
+      
+
+    // document.querySelector (".image_source").addEventListener("change", function () {
+    
+    //   const reader = new FileReader();
+    
+    //   let trackImages=JSON.parse(localStorage.getItem("track-image")) || []
+    
+    // reader.addEventListener("load", () => {
+
+    //   trackImages.push({"track image":reader.result})
+
+    //   localStorage.setItem("track-image", JSON.stringify(trackImages));
+
+    //     });
+    //   reader.readAsDataURL (this.files[0]);
+    //   });
 
 
-      document.querySelector (".audio_source").addEventListener("change", function () {
-    const reader = new FileReader();
+    //   document.querySelector (".audio_source").addEventListener("change", function () {
+    // const reader = new FileReader();
 
-    reader.addEventListener("load", () => {
+    // reader.addEventListener("load", () => {
 
-      localStorage.setItem("audio_file", reader.result);
+    //   localStorage.setItem("audio_file", JSON.stringify(reader.result));
 
-        });
-      reader.readAsDataURL (this.files[0]);
-      });
+    //     });
+    //   reader.readAsDataURL (this.files[0]);
+    //   });
 
 
   

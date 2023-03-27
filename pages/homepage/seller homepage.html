@@ -20,7 +20,7 @@
   <body>
     <div class="header">
         <img loading="lazy"class="logo" src="../../assets/img/logo-removebg-preview.png" alt="logo">
-        <a href="../seller profile and upload a track/upload a track .html" style="text-decoration:none;color: white; width: 15%; position: relative; left: 150px; top: 65px;">Upload a Track +</a>
+        <a href="../seller profile and upload a track/upload a track .html" style="text-decoration:none;color: white; width: 15%; position: relative; left: 150px; top: 65px;" class="upload">Upload a Track +</a>
         <form role="search" id="form">
           <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
         </form>
@@ -226,7 +226,15 @@
               </div>
           </div>
       </div>
-     
+
+      <script>
+            document.querySelector(".upload").addEventListener("click",()=>{
+              localStorage.removeItem("productId")
+
+            })
+
+      </script>
+     <script src="../../assets/js/upload file js"></script>
     
 
     </body>

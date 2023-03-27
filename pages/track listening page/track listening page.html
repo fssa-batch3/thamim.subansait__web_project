@@ -1,218 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset='UTF-8'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Listening page</title>
-    <link rel="stylesheet" href="../../assets/css/track listening style.css">
+    <link rel="stylesheet" href="../../assets/css/track listening style.css" />
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-        <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="header">
-        <a href="../homepage/buyer homepage.html"><img loading="lazy"class="logo" src="../../assets/img/logo-removebg-preview.png" alt="logo"></a>
+      <a
+        href="../pages/homepage/buyer homepage.html"
+        style="
+          text-decoration: none;
+          color: white;
+          font-size: large;
+          position: relative;
+          left: 30px;
+        "
+        ><h2>DOBOO</h2></a
+      >
+      <div class="search">
         <form role="search" id="form">
-          <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
+          <input
+            type="search"
+            id="query"
+            name="q"
+            placeholder="Search..."
+            aria-label="Search through site content"
+          /><i
+            class="fa-solid fa-magnifying-glass"
+            style="color: rgb(0, 0, 0); font-size: x-large"
+          ></i>
         </form>
-        <div class="dropdown">
-        <span style="color:white;">EXPLORE</span>
+      </div>
+      <div class="dropdown">
+        <span style="color: white; font-size: large">EXPLORE </span>
         <div class="dropdown-content">
-        <a href="../explore artist.html">Connect with artist</a>
-        <a href="../explore artist.html">Connect with singers</a>
-
+          <a href="../explore artist.html">Connect with artist</a>
+          <a href="../explore artist.html">Connect with singers</a>
         </div>
       </div>
-      <a href="../subscription page.html" style="text-decoration:none;"><p style="color:white; margin-top: 65px; position: relative; left: 150px; cursor: pointer;">SUBSCRPITION</p></a>
-        <a href="../profile.html"><img loading="lazy"class="profile"src="../../assets/img/icons8-male-user-48.png" alt="profile"></a>
-        <a href="../cart/cart.html"><img loading="lazy"class="carticon" src="../../assets/img/icons8-shopping-cart-60.png" alt="cart icon"></a>
+      <a href="../pages/subscription page.html" style="text-decoration: none"
+        ><p
+          style="
+            color: white;
+            background-color: #222222;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: large;
+          "
+        >
+          SUBSCRPITION
+        </p></a
+      >
+      <a href="../profile.html"
+        ><img
+          loading="lazy"
+          class="profile"
+          src="../../assets/img/icons8-male-user-48.png"
+          alt="profile"
+      /></a>
+      <a href="../pages/cart/cart.html"
+        ><img
+          loading="lazy"
+          class="carticon"
+          src="../../assets/img/icons8-shopping-cart-60.png"
+          alt="cart icon"
+      /></a>
     </div>
     <div class="content">
-      
       <div class="leftside">
         <div class="card">
           <!-- <img loading="lazy"class="logo1" src="https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMjAxMDIxL2ltYWdlL2hEaHB5NjBldnV0ci9lYm56ZmRzYnRiaS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoyNDAsImhlaWdodCI6MjQwfX19?t=19301" alt="track logo">
           <h2>Track Name</h2>
           <p>Artist Name</p> -->
+        </div>
+      </div>
 
-          </div>
-          </div>
-        
-        <div class="rightside">
-          <div class="detail">
-            <h2 style="color:white; font-size:50px;">Details</h2>
-              <p></p>
-              <p>Key: E MIN</p>
+      <div class="rightside">
+        <div class="detail">
+          <div class="properdetail">
+            <!-- <p>Key: E MIN</p>
               <p>Used Daw: Name</p>
               <p>Camelot: 12B</p>
               <p> Music producer</p>
-              <p>movie name</p> 
               <p>record label</p>
-              <p>album name</p>
-              
-              <a href="../cart/cart.html" style="text-decoration:none;"><button type="button">ADD TO CART</button></a><i id="book" class="fa-solid fa-heart" style="color: white; font-size: 40px; position: relative; left: 120px; top: 10px;"></i><i  id="book" class="fa-solid fa-bookmark" style="color: white; font-size: 40px; position: relative; left: 300px; bottom: 40px;" ></i>
-              
+              <p>Track Detail</p> -->
           </div>
-        </div>
-        <div class="second-right">
-          <h1 style="color:white;">LYRICS</h1>
-          <div class="lyric">
-           
-           <p>Kido, Kido
-
-            Kido on the beat, better run it back
             
-            Fuckin' Robitussin
-            
-            I don't know why this shit got me lazy right now, yeah
-            
-            Can't do Percocets or Molly
-            
-            I'm turnin' one, tryna live it up here right, right, right
-            
-            Baby, you can
-            
-            Ride it, ooh, yeah
-            
-            Bring it over to my place
-            
-            And you be like
-            
-            "Baby, who cares?"
-            
-            But I know you care</p>
-            
-                   
-  
-
-          </div>
+          <a href="../cart/cart.html" style="text-decoration: none"
+            ><button type="button" class="cart">ADD TO CART</button></a>
           
-        </div>
-    </div>
-       <div class="below">
-        <h2 style="color: white; margin-left: 120px; margin-top: 30px;"> Similar tracks</h2>
-        <div class="similar">
-         <img loading="lazy"src="../../assets/img/cover3.png" alt="">
-         <img loading="lazy"src="../../assets/img/cover3.png" alt="">
-         <img loading="lazy"src="../../assets/img/cover3.png" alt="">
-         <img loading="lazy"src="../../assets/img/cover3.png" alt="">
-        </div>
-   
-       </div>
-       <div class="music-player">
-        <div class="song-bar">
-            <div class="song-infos">
-                <div class="image-container">
-                    <img loading="lazy"src="../../assets/img/cover3.png" alt="" />
-                </div>
-                <div class="song-description">
-                    <p class="title1">
-                        Thamim Tommy song
-                    </p>
-                    <p class="artist">Thamim</p>
-                </div>
-            </div>
-            <div class="icons">
-                <i class="far fa-heart"></i>
-                <i class="fas fa-compress"></i>
-            </div>
-        </div>
-        <div class="progress-controller">
-            <div class="control-buttons">
-                <i id="hide" class="fas fa-random"></i>
-                <i class="fas fa-step-backward"></i>
-                <i class="play-pause fas fa-play"></i>
-                <i class="fas fa-step-forward"></i>
-                <i id="hide"class="fas fa-undo-alt"></i>
-            </div>
-            <div class="progress-container">
-                <span>0:39</span>
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-                <span>1:15</span>
-            </div>
-        </div>
-        <div class="other-features">
-            <i class="fas fa-list-ul"></i>
-            <i class="fas fa-desktop"></i>
-            <div class="volume-bar">
-                <i class="fas fa-volume-down"></i>
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+            <i
 
+            id="like"
+            class="far fa-heart"
+            style="
+              color: rgb(199, 1, 94);
+              font-size: 30px;
+              position: relative;
+              left: 30px;
+              top: 8px;
+            "
+          ></i
+          ><i
+
+            id="save"
+            class="far fa-bookmark"
+            style="
+              color: rgba(255, 255, 255, 0.589);
+              font-size: 28px;
+              position: relative;
+              left: 60px;
+              top: 7px;
+            "
+          ></i>
+        </div>
+      </div>
+      <div class="second-right">
+        <h1 style="color: white">LYRICS</h1>
+        <div class="lyric">
+          <p>
+            Kido, Kido Kido on the beat, better run it back Fuckin' Robitussin I
+            don't know why this shit got me lazy right now, yeah Can't do
+            Percocets or Molly I'm turnin' one, tryna live it up here right,
+            right, right Baby, you can Ride it, ooh, yeah Bring it over to my
+            place And you be like "Baby, who cares?" But I know you care
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="below">
+      <h2 style="color: white; margin-left: 120px; margin-top: 30px">
+        Similar tracks
+      </h2>
+      <div class="similar">
+        <img loading="lazy" src="../../assets/img/cover3.png" alt="" />
+        <img loading="lazy" src="../../assets/img/cover2.png" alt="" />
+        <img loading="lazy" src="../../assets/img/cover4.png" alt="" />
+        <img loading="lazy" src="../../assets/img/cover5.png" alt="" />
+      </div>
+
+      <div class="userAlert">
+        <div class="like">
+          <span class="LikeAlert">Added to your liked Tracks</span>
+        </div>
+      </div>
+      <div class="userAlert">
+        <div class="dislike">
+          <span class="LikeAlert">Removed from liked Tracks</span>
+        </div>
+      </div>
+    </div>
+    <div class="music-player">
+      <div class="song-bar">
+        <div class="song-infos">
+          <div class="image-container">
+            <img loading="lazy" src="../../assets/img/cover3.png" alt="" />
+          </div>
+          <div class="song-description">
+            <p class="title1">Thamim Tommy song</p>
+            <p class="artist">Thamim</p>
+          </div>
+        </div>
+        <div class="icons">
+          <i class="far fa-heart"></i>
+          <i class="fas fa-compress"></i>
+        </div>
+      </div>
+      <div class="progress-controller">
+        <div class="control-buttons">
+          <i id="hide" class="fas fa-random"></i>
+          <i class="fas fa-step-backward"></i>
+          <i class="play-pause fas fa-play"></i>
+          <i class="fas fa-step-forward"></i>
+          <i id="hide" class="fas fa-undo-alt"></i>
+        </div>
+        <div class="progress-container">
+          <span>0:39</span>
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+          <span>1:15</span>
+        </div>
+      </div>
+      <div class="other-features">
+        <i class="fas fa-list-ul"></i>
+        <i class="fas fa-desktop"></i>
+        <div class="volume-bar">
+          <i class="fas fa-volume-down"></i>
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
+      let trackId = new URLSearchParams(window.location.search).get("tracks");
+      let track_details = JSON.parse(localStorage.getItem("trackName"));
+      function findTrack(track) {
+        return track.productId === trackId;
+      }
+
+      let loadtrack = track_details.find(findTrack);
+
+      track_img = document.createElement("img");
+      track_img.setAttribute("class", "logo1");
+      track_img.setAttribute("src", "https://source.unsplash.com/random/200x200?sig=${i}");
+      document.querySelector(".card").append(track_img);
+
+      track_title = document.createElement("p");
+      track_title.innerText = "Track Name :" + " " + loadtrack["trackname"];
+      document.querySelector(".properdetail").append(track_title);
+
+      track_bpm = document.createElement("p");
+      track_bpm.innerText = loadtrack["bpm"] + " " + "BPM";
+      document.querySelector(".properdetail").append(track_bpm);
+
+      track_Daw = document.createElement("p");
+      track_Daw.innerText = "Used DAW :" + " " + "FL AND LOGIC ";
+      document.querySelector(".properdetail").append(track_Daw);
+
+      track_Genre = document.createElement("p");
+      track_Genre.innerText = "Genre : " + " " + loadtrack["genre"];
+      document.querySelector(".properdetail").append(track_Genre);
+
+      track_Key = document.createElement("p");
+      track_Key.innerText = "Key : " + " " + loadtrack["key"];
+      document.querySelector(".properdetail").append(track_Key);
+
+      track_Camelot = document.createElement("p");
+      track_Camelot.innerText = "Camelot : " + " " + "1A to 13E";
+      document.querySelector(".properdetail").append(track_Camelot);
+
+      track_Detail = document.createElement("p");
+      track_Detail.innerText = "Track Details : " + loadtrack["detail"];
+      document.querySelector(".properdetail").append(track_Detail);
+
+      track_Price = document.createElement("p");
+      track_Price.setAttribute("style", "font-size: x-large;font-weight: 600;");
+      track_Price.innerText = "Price : " + "$" + loadtrack["price"] + "/-";
+      document.querySelector(".properdetail").append(track_Price);
+
+      // cart_button=document.createElement("a");
+      // cart_button.setAttribute("href","../cart/cart.html")
+      // cart_button.setAttribute("style","text-decoration: none");
+      // document.querySelector(".tocart")
+
+      // button_button=document.createElement("button");
+      // button_button.setAttribute("type","button");
 
 
-    const songTitle=[
-      {
-      
-          "image":{
-            "source":"https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMjAxMDIxL2ltYWdlL2hEaHB5NjBldnV0ci9lYm56ZmRzYnRiaS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoyNDAsImhlaWdodCI6MjQwfX19?t=19301",
-            "alt":""
-          },
-          "trackname":"beat001",
-          "artistname":"justin",
+
+      // artist_name=document.createElement("p");
+      // artist_name.innerText=songTitle[0]["artistname"];
+
+      // document.querySelector("div.card").append(track_img);
+      // document.querySelector("div.card").append(track_title);
+      // document.querySelector("div.card").append(artist_name);
+
+      detail = document.querySelector("div.detail");
+
+      //   const likeBtn = document.querySelector('#like');
+
+      //   function likesong(){
+      //   likeBtn.classList.toggle("fa-solid")
+      // }
+      // likeBtn.addEventListener('click',likesong);
+
+      let button = document.querySelector("#like");
+      let likepop = document.querySelector(".like");
+      let dislikepop = document.querySelector(".dislike");
+
+      button.addEventListener("click", function (e) {
+        this.classList.toggle("fa-solid");
+        this.classList.toggle("animated");
+        this.classList.toggle("active");
+        this.classList.toggle("true");
+        let likedTracks = JSON.parse(localStorage.getItem("Liked")) || [];
+        let trackid = loadtrack["productId"];
+        let exist =
+          likedTracks.length &&
+          likedTracks.some((data) => data.trackid == trackid);
+        // let trueorfalse=this.dataset.getAttribute("like").toggle("true")
+
+        if (this.classList.contains("true") && !exist) {
+          this.setAttribute("like", "true");
+          likedTracks.push({
+            trackid: loadtrack["productId"],
+            Trackname: loadtrack["trackname"],
+            artistname: "",
+          });
+          localStorage.setItem("Liked", JSON.stringify(likedTracks));
+          // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})
+        } else {
+          this.setAttribute("like", "false");
+          let LikedList = likedTracks.filter((data) => data.trackid != trackid);
+
+          localStorage.setItem("Liked", JSON.stringify(LikedList));
         }
-    
+      });
 
-    ]
+      function findLike() {
+        let likedTracks = JSON.parse(localStorage.getItem("Liked"));
+        let trackid = loadtrack["productId"];
+        let exist =
+          likedTracks.length &&
+          likedTracks.some((data) => data.trackid == trackid);
+        if (exist) {
+          button.classList.toggle("fa-solid");
+          button.classList.toggle("animated");
+          button.classList.toggle("active");
+          button.classList.toggle("true");
+        }
+      }
 
-
-    const songDetail =[
-{}
-    
-    ]
-
-
-
-      track_img=document.createElement("img");
-      track_img.setAttribute("class","logo1");
-      track_img.setAttribute("src",songTitle[0]["image"]["source"]);
-      
-
-      
-      track_title=document.createElement("h2");
-      track_title.innerText=songTitle[0]["trackname"];
-      
-      
-
-      artist_name=document.createElement("p");
-      artist_name.innerText=songTitle[0]["artistname"];
-      
-
-      document.querySelector("div.card").append(track_img);
-      document.querySelector("div.card").append(track_title);
-      document.querySelector("div.card").append(artist_name);
-
-        detail =document.querySelector("div.detail")
-      
-      
+      window.onload = function () {
+        findLike();
+        findLike1();
+      };
 
       
 
+      function timeout() {
+        likepop.style.display = "none";
+      }
+      function timeout2() {
+        dislikepop.style.display = "none";
+      }
+
+      function likeAlert() {
+        if (this.classList.contains("active")) {
+          likepop.style.display = "block";
+          dislikepop.style.display = "none";
+          likepop.style.transition = "ease-in-out 10s";
+          setTimeout(timeout, 5000);
+        } else {
+          dislikepop.style.display = "block";
+          likepop.style.display = "none";
+          dislikepop.style.transition = "ease-in-out 10s";
+          setTimeout(timeout2, 5000);
+        }
+      }
+
+      button.addEventListener("click", likeAlert);
+
+      let saveBtn = document.getElementById("save");
+
+      saveBtn.addEventListener("click", function (e) {
+        this.classList.toggle("fa-solid");
+        this.classList.toggle("true");
+        let savedTracks = JSON.parse(localStorage.getItem("Saved")) || [];
+        let trackid = loadtrack["productId"];
+        let exist =
+          savedTracks.length &&
+          savedTracks.some((data) => data.trackid == trackid);
+        // let trueorfalse=this.dataset.getAttribute("like").toggle("true")
+
+        if (this.classList.contains("true") && !exist) {
+          this.setAttribute("saved", "true");
+          savedTracks.push({
+            trackid: loadtrack["productId"],
+            Trackname: loadtrack["trackname"],
+            artistname: "",
+          });
+          localStorage.setItem("saved", JSON.stringify(savedTracks));
+          // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})
+        } else {
+          this.setAttribute("like", "false");
+          let savedList = savedTracks.filter((data) => data.trackid != trackid);
+
+          localStorage.setItem("saved", JSON.stringify(savedTracks));
+        }
+      });
+
+      function findLike1() {
+        let savedTracks = JSON.parse(localStorage.getItem("Liked"));
+        let trackid = loadtrack["productId"];
+        let exist =
+          savedTracks.length &&
+          savedTracks.some((data) => data.trackid == trackid);
+        if (exist) {
+          saveBtn.classList.toggle("fa-solid");
+          saveBtn.classList.toggle("true");
+        }
+      }
+
+      let cart_button=document.querySelector(".cart");
+
+      cart_button.addEventListener("click", function (e) {
+        
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let trackid = loadtrack["productId"];
+        let exist =
+        cart.length &&
+        cart.some((data) => data.trackid == trackid);
+
+        if (!exist) {
+          cart.push({
+            trackid: loadtrack["productId"],
+            Trackname: loadtrack["trackname"],
+            artistname: "",
+            detail:loadtrack["detail"],
+            price:loadtrack["price"]
+          });
+          localStorage.setItem("cart", JSON.stringify(cart));
+          // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})
+        } else {
+          let LikedList = cart.filter((data) => data.trackid != trackid);
+
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+      });
 
 
 
 
 
     </script>
-
-
-    </body>
-    </html>
+  </body>
+</html>

@@ -8,6 +8,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> 
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> 
         <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -15,19 +17,21 @@
     </head>
     <body>
         <div class="header">
-            <a href="../pages/homepage/buyer homepage.html"><img loading="lazy"class="logo" src="../assets/img/logo-removebg-preview.png" alt="logo"></a> 
+            <a href="../pages/homepage/buyer homepage.html" style="text-decoration:none; color: white;font-size: large; position: relative; left: 30px;"><h2>DOBOO</h2></a>             
+            <div class="search">
             <form role="search" id="form">
-              <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
+              <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content"><i class="fa-solid fa-magnifying-glass" style="color: rgb(0, 0, 0); font-size:x-large;"></i>
             </form>
+            </div>
+            
             <div class="dropdown">
-            <span style="color:white;">EXPLORE </span>
+            <span style="color:white; font-size: large;">EXPLORE </span>
             <div class="dropdown-content">
             <a href="../pages/explore artist.html">Connect with artist</a>
     
             </div>
           </div>
-          <a href="../pages/subscription page.html" style="text-decoration:none;"><p style="color:white; margin-top: 65px; position: relative; left: 150px; cursor: pointer;">SUBSCRPITION</p></a>
-
+          <a href="../pages/subscription page.html" style="text-decoration:none;"><p style="color:white;background-color: #222222;border-radius: 10px;padding: 15px; font-size: large;">SUBSCRPITION</p></a>
             <a href="../pages/cart/cart.html"><img loading="lazy"class="carticon" src="../assets/img/icons8-shopping-cart-60.png" alt="cart icon"></a>
         </div>
           
@@ -161,107 +165,9 @@
             </div>
             <div class="recent">
               <h2>Liked Track</h2>
-              
-              <div class="spread">
-              <div class="card">
-                <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02b6b3b7f26f0bc0e0197163a0" alt="track poster">
-                </div>
-                <div class="text">
-                  <h3>Track Name</h3>
-                  <p>Artist Name</p>
-                </div>
-        
-              </div>
+              <div class="liked">
 
-              <div class="spread">
-                <div class="card">
-                  <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e0282a4489bc3e7f3d1372b3350" alt="track poster">
-                  </div>
-                  <div class="text">
-                    <h3>Track Name</h3>
-                    <p>Artist Name</p>
-                  </div>
-          
-                </div>
-
-                <div class="spread">
-                  <div class="card">
-                    <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02a88e2419e55cfdf1bf2a2fe2" alt="track poster">
-                    </div>
-                    <div class="text">
-                      <h3>Track Name</h3>
-                      <p>Artist Name</p>
-                    </div>
-            
-                  </div>
-
-                  <div class="spread">
-                    <div class="card">
-                      <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e020d66934f5370419636c78f18" alt="track poster">
-                      </div>
-                      <div class="text">
-                        <h3>Track Name</h3>
-                        <p>Artist Name</p>
-                      </div>
-              
-                    </div>
-
-                    <div class="spread">
-                      <div class="card">
-                        <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02e3b15ec025f8e74aac8e9393" alt="track poster">
-                        </div>
-                        <div class="text">
-                          <h3>Track Name</h3>
-                          <p>Artist Name</p>
-                        </div>
-                
-                      </div>
-
-                      <div class="spread">
-                        <div class="card">
-                          <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e0282a4489bc3e7f3d1372b3350" alt="track poster">
-                          </div>
-                          <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                          </div>
-                  
-                        </div>
-        
-                        <div class="spread">
-                          <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02a88e2419e55cfdf1bf2a2fe2" alt="track poster">
-                            </div>
-                            <div class="text">
-                              <h3>Track Name</h3>
-                              <p>Artist Name</p>
-                            </div>
-                    
-                          </div>
-        
-                          <div class="spread">
-                            <div class="card">
-                              <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e020d66934f5370419636c78f18" alt="track poster">
-                              </div>
-                              <div class="text">
-                                <h3>Track Name</h3>
-                                <p>Artist Name</p>
-                              </div>
-                      
-                            </div>
-        
-                            <div class="spread">
-                              <div class="card">
-                                <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02e3b15ec025f8e74aac8e9393" alt="track poster">
-                                </div>
-                                <div class="text">
-                                  <h3>Track Name</h3>
-                                  <p>Artist Name</p>
-                                </div>
-                        
-                              </div>
-
-            
+            </div>
             </div>
 
             
@@ -527,25 +433,9 @@
 
         <script>
        
-      //  const email = localStorage.getItem("user_email");
-      //  const password = localStorage.getItem("user_password");
-      //  const name = localStorage.getItem("user_name");
-      //  const age = localStorage.getItem("user_age")
-
-      //  document.getElementById("user_email").value = email
-      //  document.getElementById("user_name").value = name
-      //  document.getElementById("user_password").value = password
-      //  document.getElementById("user_age").value = age
-       
-       
-      //  console.log(email);
-      //  console.log(name);
-      //  console.log(passsword);
-      //  console.log(age);
-
-      
       let userEmail = JSON.parse(localStorage.getItem("userEmail"));
       let user_list=JSON.parse(localStorage.getItem("user_list"));
+      let user_liked=JSON.parse(localStorage.getItem("Liked"));
 
       function findArtist(e){
           return e.user_email==userEmail;
@@ -602,6 +492,48 @@
 
       const editThing = document.querySelector(".btn1");
       editThing.addEventListener("click",findReadonly);
+
+
+      // like track code here first for to loop the cards.
+      
+for(let i=0;i<user_liked.length;i++){
+
+    track=document.createElement("div");
+    track.setAttribute("class","spread");
+
+    imageContainer=document.createElement("div");
+    imageContainer.setAttribute("class","card");
+    track.append(imageContainer);
+
+    TrackImage=document.createElement("img");
+    TrackImage.setAttribute("loading","lazy");
+    TrackImage.setAttribute("class","trackPoster")
+    TrackImage.setAttribute("src","https://cdn5.beatstars.com/eyJidWNrZXQiOiJwcm9kLWJ0cy1hc3NldCIsImtleSI6InByb2QvYXNzZXQvTVIxNjQxOTEvQVRJTVIxNjQxOTFuRmU5QldzWS9nYW1lLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJmaWxsIiwid2lkdGgiOjI0MCwiaGVpZ2h0IjoyNDB9fX0=?t=1668435093486");
+    TrackImage.setAttribute("alt","trackPoster");
+    imageContainer.append(TrackImage)
+
+    textContainer=document.createElement("div");
+    textContainer.setAttribute("class","text");
+    track.append(textContainer);
+
+    trackName=document.createElement("h3")
+    trackName.innerText=user_liked[i]["Trackname"];
+    textContainer.append(trackName);
+
+    ArtistName=document.createElement("p")
+    ArtistName.innerText="artist name";
+    textContainer.append(ArtistName);
+
+    
+
+
+    document.querySelector(".liked").append(track)
+    console.log(track)
+
+
+
+
+}
       
 
 

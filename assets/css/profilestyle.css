@@ -9,20 +9,21 @@
 
 form {
     background-color: #ffffff;
-    width: 500px;
-    height: 44px;
-    border-radius: 30px;
+    width: 400px;
+    padding: 8px;
+    border-radius: 10px;
     display:flex;
-    flex-direction:row;
-    align-items:center;
-    margin-top: 50px;
-    margin-left: 300px;
-    
+    flex-direction: row;
+    align-items: center;  
+  }
+  .search{
+    background-color: #222222;
+    border-radius: 20px;
+    padding: 14px;
   }
 
   input {
     all: unset;
-    font: 16px system-ui;
     color: rgb(0, 0, 0);
     height: 100%;
     width: 100%;
@@ -51,10 +52,11 @@ form {
 .header{
     display: flex;
     flex-direction: row;
-    background-color: #000000;
-    margin-left: 0px;
-    border-bottom: 1px solid wheat;
-    height: 13%;
+    background-color:#000000;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #333333;
 
 }
 .logo{
@@ -69,10 +71,13 @@ body{
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
-  top:65px;
-  left:60px;
+display: inline-block;
+background-color: #222222;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    left: 50px;
+
 }
 .dropdown-content a{
   text-decoration: none;
@@ -95,13 +100,18 @@ body{
 }
 
 .carticon{
-  width: 40px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 250px;
+  width: 40px;  
   cursor: pointer;
+  position: relative;
+  right: 20px;
+ 
 }
+.carticon:hover{
+  transform: scale(1.1);
+  transition: 0.5s;
+  
 
+}
 
 
 .leftside{
@@ -133,8 +143,9 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 87%;
+  height: 100%;
   color: white;
+  margin-top: 30px;
 
 }
 .recent{
@@ -195,7 +206,7 @@ body{
 
 }
 .spread:hover{
-    background-color: #2b2b2b;
+    background-color: #5d5d5d;
     transform: scale(1.07);
     transition: 0.5s;
 }
@@ -232,6 +243,9 @@ body{
   display: flex;
   flex-direction: column;
 
+}
+.liked{
+  text-align: initial
 }
 .input{
   display: flex;

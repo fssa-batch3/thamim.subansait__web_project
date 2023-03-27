@@ -135,29 +135,12 @@ const musicContainer = document.querySelector('.music-player');
     // volume control function on music player.
     
     
-    sound.setAttribute("data-test","mute");
+    // sound.setAttribute("data-test","mute");
     
-    function volumeMute(e){
-        const find= e.target
-          
-      if(!find.dataset.contains("unmute")){
-            // sound.removeAttribute("data-test","mute");
-            // sound.setAttribute("data-test","unmute")
-            audio.volume = 0;
-      }
-      else{
-        // sound.getAttribute("data-test","unmute")
-        // sound.removeAttribute("data-test","unmute");
-        // sound.setAttribute("data-test","mute")
-        audio.volume = 1;
-      }
-          
-    }
+    
 
     
-      // function soundUnmute(){
-      //   audio.volume = 1;
-      // }
+     
     
 
     
@@ -166,101 +149,8 @@ const musicContainer = document.querySelector('.music-player');
      pevBtn.addEventListener("click", prevSong,);
      nextBtn.addEventListener("click",nextSong,);
      likeBtn.addEventListener('click',likesong);
-     sound.addEventListener("click", volumeMute);
      
      
-
-     
-    const trackproduct = [
-      {
-        "Image": {
-          source: "../../assets/img/cover4.png",
-        },
-        "trackname": "beat001",
-        "artistname": "justin",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover1.png"
-        },
-        "trackname": "beat002",
-        "artistname": "thamim",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover2.png"
-        },
-        "trackname": "hard 001",
-        "artistname": "tommy",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover3.png"
-        },
-        "trackname": "fresh beat",
-        "artistname": "vignesh",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover5.png"
-        },
-        "trackname": "beatsworld",
-        "artistname": "ajun",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover6.png"
-        },
-        "trackname": "soultype",
-        "artistname": "j cole",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover7.png"
-        },
-        "trackname": "Blue eyes",
-        "artistname": "ji ji",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover10.png"
-        },
-        "trackname": "post type",
-        "artistname": "modi ji",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover5.png"
-        },
-        "trackname": "sixnine",
-        "artistname": "anil",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover7.png"
-        },
-        "trackname": "good",
-        "artistname": "turtle",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover4.png"
-        },
-        "trackname": "ariana",
-        "artistname": "beyonce",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover1.png"
-        },
-        "trackname": "T-gan",
-        "artistname": "painkiller",
-      }
-
-
-    ]
-
-
     let track;
     let product_image;
 
@@ -269,22 +159,59 @@ const musicContainer = document.querySelector('.music-player');
 
 
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i<loadData.length; i++) {
 
       track = document.createElement("div");
+      track.setAttribute("class","tracks")
+
+      trackContainer=document.createElement("a");
+      trackContainer.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+loadData[i]["productId"]);
+      trackContainer.setAttribute("style","text-decoration:none;")
+      track.append(trackContainer)
   
-      product_image = document.createElement("img");
-      product_image.setAttribute("src", trackproduct[i]["Image"]["source"]);
-      track.append(product_image);
+      product_image = document.createElement("img"); 
+      product_image.setAttribute("src", `https://source.unsplash.com/random/200x200?sig=${i}`);
+      trackContainer.append(product_image);
 
-      trackname = document.createElement("p");
-      trackname.innerText = loadData[i]["track name"];
-      track.append(trackname);
+      track_name = document.createElement("p");
+      track_name.innerText = loadData[i]["trackname"];
+      trackContainer.append(track_name);
 
-      artistname = document.createElement("p");
-      artistname.innerText = trackproduct[i]["artistname"];
-      track.append(artistname);
+    //   artistname = document.createElement("p");
+    //   artistname.innerText = trackproduct[i]["artistname"];
+    //   track.append(artistname);
 
 
       document.querySelector("div.productlist").append(track);
+     
     }
+       
+const volumeBar = document.querySelector('.volume-bar-1');
+const volumeBarFill = document.querySelector('.volumeProgress');
+
+let isDragging = false;
+
+function setVolumeFromMousePosition(event) {
+  
+  const volumeBarWidth = event.width;
+  const mouseX = event.clientX - volumeBarWidth;
+  const volumePercentage = 1 - (mouseX / volumeBarWidth);
+  audio.volume = volumePercentage;
+  volumeBarFill.style.width = `${mouseX}%`;
+}
+
+volumeBar.addEventListener('mousedown', (event) => {
+  isDragging = true;
+  setVolumeFromMousePosition(event);
+});
+
+volumeBar.addEventListener('mousemove', (event) => {
+  if (isDragging) {
+    setVolumeFromMousePosition(event);
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+    
