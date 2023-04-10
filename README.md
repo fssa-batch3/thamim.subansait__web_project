@@ -202,7 +202,7 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
         3. Click the "cart icon" button in the hearder.
         4. click "remove" button to remove the song from your cart.
     * Expected Result:
-        * The song will remove from cart.
+        * The song will remove from cart. 
      
 
 
