@@ -10,27 +10,17 @@ function getData(){
         price = document.getElementById("Price").value;
         product_unique_id = uuidv4();
 
-
-
-       
-
-    // let track_list = [];
-        
     let trackData =JSON.parse(localStorage.getItem('trackName')) ||[];
-
-    // let exist = dishData.length && 
-    //     JSON.parse(localStorage.getItem("dishData")).some(data=>
-    //         data.dishes == dishes);
-
-    // if(!exist){
-    //     
+   
         trackData.push({"trackname":name, "bpm": bpm,"key":key,"genre": genre, "detail": detail, "price":price,"productId":product_unique_id});
         localStorage.setItem("trackName",JSON.stringify(trackData));
-        console.log(trackData);
-        location.href="../homepage/buyer homepage.html"
-        // location.reload()
+        
+        location.href="../seller profile and upload a track/seller profile.html"
+        
+       
 
       }
+      
 
       let ProductID = JSON.parse(localStorage.getItem("productId"));
       let trackList = JSON.parse(localStorage.getItem("trackName"));
@@ -72,7 +62,7 @@ function getData(){
         updatedetail = document.getElementById("text1").value
         updateprice = document.getElementById("Price").value
 
-        location.href="../homepage/buyer homepage.html"
+        location.href="../seller profile and upload a track/seller profile.html"
 
        // paste the updated data to the correct object
        NewTrack["trackname"] = updatename;
@@ -89,6 +79,7 @@ function getData(){
    let del_product = document.querySelector("#list1");
         del_product.addEventListener("click", delData);
         function delData() {
+            if(localStorage.getItem("productId")){
             if (confirm("Are you sure?")) {
                 let ProductID = JSON.parse(localStorage.getItem("productId"));
                 let trackList = JSON.parse(localStorage.getItem("trackName"));
@@ -99,9 +90,10 @@ function getData(){
                 const indexOfproduct = trackList.indexOf(product_data);
                 trackList.splice(indexOfproduct, 1);
                 localStorage.setItem('trackName', JSON.stringify(trackList));
-                location.href="../homepage/buyer homepage.html"
+                location.href="../seller profile and upload a track/seller profile.html"
                 
-            };
+            }
+        };
         }
       
       

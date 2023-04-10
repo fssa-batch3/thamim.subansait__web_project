@@ -196,7 +196,8 @@
             <div class="btn">
             <button type="button" class="btn1">Edit</button>
             <button type="button" class="btn2" id="sav" style="display: none;">Save</button>
-            <button type="button" class="btn3">Log Out</button>
+            <button type="button"  id="logout"class="btn3">Log Out</button>
+            <button type="button"  id="delete"class="btn3">Delete</button>
             </div>
 
 
@@ -312,6 +313,7 @@
             </div>
 
             <div class="recent2">
+              
               <h2>Save later</h2>
               
               <div class="spread">
@@ -432,10 +434,44 @@
 
 
         <script>
+
+          const logout = document.querySelector('#logout');
+          logout.addEventListener('click',()=>{
+            window.location.href = '/index.html';
+          })
        
       let userEmail = JSON.parse(localStorage.getItem("userEmail"));
       let user_list=JSON.parse(localStorage.getItem("user_list"));
       let user_liked=JSON.parse(localStorage.getItem("Liked"));
+
+function deleteuser(e){
+  if (localStorage.getItem("user_list")) {
+    if (confirm("Are you sure you want to delete account?")) {
+      let users = JSON.parse(localStorage.getItem("user_list"));
+      let userID = userEmail
+      console.log(userID);
+
+      // Find the index of the user to be deleted
+      let userIndex = users.findIndex(user => user.user_email=== userID);
+
+      // If the user is found, remove them from the array
+      if (userIndex !== -1) {
+        users.splice(userIndex, 1);
+
+        // Convert the updated array back to a string
+        let updatedUserList = JSON.stringify(users);
+
+        // Store the updated string in localStorage
+        localStorage.setItem("user_list", updatedUserList);
+
+        // Redirect the user to a different page or display a success message
+        location.href = "/index.html";
+      }
+    }
+  }
+}
+
+      const deleteUser=document.querySelector('#delete').addEventListener('click',deleteuser);
 
       function findArtist(e){
           return e.user_email==userEmail;
@@ -508,7 +544,7 @@ for(let i=0;i<user_liked.length;i++){
     TrackImage=document.createElement("img");
     TrackImage.setAttribute("loading","lazy");
     TrackImage.setAttribute("class","trackPoster")
-    TrackImage.setAttribute("src","https://cdn5.beatstars.com/eyJidWNrZXQiOiJwcm9kLWJ0cy1hc3NldCIsImtleSI6InByb2QvYXNzZXQvTVIxNjQxOTEvQVRJTVIxNjQxOTFuRmU5QldzWS9nYW1lLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJmaWxsIiwid2lkdGgiOjI0MCwiaGVpZ2h0IjoyNDB9fX0=?t=1668435093486");
+    TrackImage.setAttribute("src",`https://source.unsplash.com/random/200x200?sig=${i}`);
     TrackImage.setAttribute("alt","trackPoster");
     imageContainer.append(TrackImage)
 
