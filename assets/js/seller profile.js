@@ -141,13 +141,13 @@ for (let i = 0; i < filteredData.length; i++) {
 //     })
 // }
 
-const edit_button = document.querySelectorAll('button.btn_edit');
+const editButton = document.querySelectorAll('button.btn_edit');
 
-edit_button.forEach((findId) => {
+editButton.forEach((findId) => {
   findId.addEventListener('click', function () {
     const dataId = this.dataset.id;
     localStorage.setItem('songId', JSON.stringify(dataId));
-    location.href = '../pages/seller profile and upload a track/upload a track .html';
+    window.location.href = '../pages/seller profile and upload a track/upload a track .html';
     console.log(dataId);
   });
 });
