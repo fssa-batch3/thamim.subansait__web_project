@@ -175,7 +175,7 @@ https://drive.google.com/drive/u/0/folders/1M9XzBWcegeVVPd__Gf5XfsqUJx_GLbGS
     * Expected Result:
         * The song is added to the user's fav list page.
         * Alert message will displayed saying "added to the user's fav list".
-* Read product (completed)
+* Read song (completed)
     * Scenario 1: Successfully see the song in the favlist page.
       * Steps:
         1. Log in as buyer.

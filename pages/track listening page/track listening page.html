@@ -141,13 +141,7 @@
       <div class="second-right">
         <h1 style="color: white">LYRICS</h1>
         <div class="lyric">
-          <p>
-            Kido, Kido Kido on the beat, better run it back Fuckin' Robitussin I
-            don't know why this shit got me lazy right now, yeah Can't do
-            Percocets or Molly I'm turnin' one, tryna live it up here right,
-            right, right Baby, you can Ride it, ooh, yeah Bring it over to my
-            place And you be like "Baby, who cares?" But I know you care
-          </p>
+          
         </div>
       </div>
     </div>
@@ -221,7 +215,7 @@
       let trackId = new URLSearchParams(window.location.search).get("tracks");
       let track_details = JSON.parse(localStorage.getItem("trackName"));
       function findTrack(track) {
-        return track.productId === trackId;
+        return track.songId === trackId;
       }
 
       let loadtrack = track_details.find(findTrack);
@@ -236,12 +230,16 @@
       document.querySelector(".properdetail").append(track_title);
 
       track_bpm = document.createElement("p");
-      track_bpm.innerText = loadtrack["bpm"] + " " + "BPM";
+      track_bpm.innerText = "BPM :"+ " "+loadtrack["bpm"] ;
       document.querySelector(".properdetail").append(track_bpm);
 
       track_Daw = document.createElement("p");
-      track_Daw.innerText = "Used DAW :" + " " + "FL AND LOGIC ";
+      track_Daw.innerText = "Used DAW :" + " " + loadtrack["daw"];
       document.querySelector(".properdetail").append(track_Daw);
+
+      artist_name = document.createElement("p");
+      artist_name.innerText=loadtrack["artistName"];
+      document.querySelector(".properdetail").append(artist_name)
 
       track_Genre = document.createElement("p");
       track_Genre.innerText = "Genre : " + " " + loadtrack["genre"];
@@ -261,7 +259,7 @@
 
       track_Price = document.createElement("p");
       track_Price.setAttribute("style", "font-size: x-large;font-weight: 600;");
-      track_Price.innerText = "Price : " + "$" + loadtrack["price"] + "/-";
+      track_Price.innerText = "Price : " + "$" + loadtrack["price"];
       document.querySelector(".properdetail").append(track_Price);
 
       // cart_button=document.createElement("a");
@@ -274,8 +272,7 @@
 
 
 
-      // artist_name=document.createElement("p");
-      // artist_name.innerText=songTitle[0]["artistname"];
+      
 
       // document.querySelector("div.card").append(track_img);
       // document.querySelector("div.card").append(track_title);
@@ -290,9 +287,27 @@
       // }
       // likeBtn.addEventListener('click',likesong);
 
+      const lyric=document.createElement('p')
+
+      function lyrics(){
+        if(loadtrack["lyrics"].length !=0){
+              return loadtrack["lyrics"]
+            }
+            else{
+              return " No lyrics available"
+            }
+      }
+      
+      lyric.innerHTML= lyrics()
+      document.querySelector(".lyric").append(lyric)
+
+
       let button = document.querySelector("#like");
       let likepop = document.querySelector(".like");
       let dislikepop = document.querySelector(".dislike");
+
+      let userEmail=localStorage.getItem("userEmail");
+
 
       button.addEventListener("click", function (e) {
         this.classList.toggle("fa-solid");
@@ -300,7 +315,7 @@
         this.classList.toggle("active");
         this.classList.toggle("true");
         let likedTracks = JSON.parse(localStorage.getItem("Liked")) || [];
-        let trackid = loadtrack["productId"];
+        let trackid = loadtrack["songId"];
         let exist =
           likedTracks.length &&
           likedTracks.some((data) => data.trackid == trackid);
@@ -309,9 +324,10 @@
         if (this.classList.contains("true") && !exist) {
           this.setAttribute("like", "true");
           likedTracks.push({
-            trackid: loadtrack["productId"],
+            trackid: loadtrack["songId"],
             Trackname: loadtrack["trackname"],
-            artistname: "",
+            artistname: loadtrack["artistName"],
+            userEmail: userEmail
           });
           localStorage.setItem("Liked", JSON.stringify(likedTracks));
           // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})
@@ -325,7 +341,7 @@
 
       function findLike() {
         let likedTracks = JSON.parse(localStorage.getItem("Liked"));
-        let trackid = loadtrack["productId"];
+        let trackid = loadtrack["songId"];
         let exist =
           likedTracks.length &&
           likedTracks.some((data) => data.trackid == trackid);
@@ -372,8 +388,8 @@
       saveBtn.addEventListener("click", function (e) {
         this.classList.toggle("fa-solid");
         this.classList.toggle("true");
-        let savedTracks = JSON.parse(localStorage.getItem("Saved")) || [];
-        let trackid = loadtrack["productId"];
+        let savedTracks = JSON.parse(localStorage.getItem("saved")) || [];
+        let trackid = loadtrack["songId"];
         let exist =
           savedTracks.length &&
           savedTracks.some((data) => data.trackid == trackid);
@@ -382,9 +398,10 @@
         if (this.classList.contains("true") && !exist) {
           this.setAttribute("saved", "true");
           savedTracks.push({
-            trackid: loadtrack["productId"],
+            trackid: loadtrack["songId"],
             Trackname: loadtrack["trackname"],
-            artistname: "",
+            artistname: loadtrack["artistName"],
+            userEmail: userEmail
           });
           localStorage.setItem("saved", JSON.stringify(savedTracks));
           // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})
@@ -397,8 +414,8 @@
       });
 
       function findLike1() {
-        let savedTracks = JSON.parse(localStorage.getItem("Liked"));
-        let trackid = loadtrack["productId"];
+        let savedTracks = JSON.parse(localStorage.getItem("saved"));
+        let trackid = loadtrack["songId"];
         let exist =
           savedTracks.length &&
           savedTracks.some((data) => data.trackid == trackid);
@@ -413,18 +430,19 @@
       cart_button.addEventListener("click", function (e) {
         
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let trackid = loadtrack["productId"];
+        let trackid = loadtrack["songId"];
         let exist =
         cart.length &&
         cart.some((data) => data.trackid == trackid);
 
         if (!exist) {
           cart.push({
-            trackid: loadtrack["productId"],
+            trackid: loadtrack["songId"],
             Trackname: loadtrack["trackname"],
-            artistname: "",
+            artistname: loadtrack[""],
             detail:loadtrack["detail"],
-            price:loadtrack["price"]
+            price:loadtrack["price"],
+            userEmail: userEmail
           });
           localStorage.setItem("cart", JSON.stringify(cart));
           // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})

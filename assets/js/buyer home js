@@ -13,6 +13,13 @@ const musicContainer = document.querySelector('.music-player');
     const sound = document.querySelector('#voume');
     console.log(sound)
     
+
+    // upload song songId removing in local storage
+
+    // document.querySelector(".upload").addEventListener("click",()=>{
+    //   localStorage.removeItem("productId")
+
+    // })
     
     
     
@@ -165,21 +172,21 @@ const musicContainer = document.querySelector('.music-player');
       track.setAttribute("class","tracks")
 
       trackContainer=document.createElement("a");
-      trackContainer.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+loadData[i]["productId"]);
+      trackContainer.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+loadData[i]["songId"]);
       trackContainer.setAttribute("style","text-decoration:none;")
       track.append(trackContainer)
   
       product_image = document.createElement("img"); 
-      product_image.setAttribute("src", `https://source.unsplash.com/random/200x200?sig=${i}`);
+      product_image.setAttribute("src", "https://loremflickr.com/320/240");
       trackContainer.append(product_image);
 
       track_name = document.createElement("p");
       track_name.innerText = loadData[i]["trackname"];
       trackContainer.append(track_name);
 
-    //   artistname = document.createElement("p");
-    //   artistname.innerText = trackproduct[i]["artistname"];
-    //   track.append(artistname);
+      artistname = document.createElement("p");
+      artistname.innerText = loadData[i]["artistName"];
+      track.append(artistname);
 
 
       document.querySelector("div.productlist").append(track);

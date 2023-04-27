@@ -1,101 +1,173 @@
+    const userEmail=JSON.parse(localStorage.getItem("userEmail"));
+    let user_list=JSON.parse(localStorage.getItem("user_list"));
+    function findArtist(e){
+        return e.user_email==userEmail;
+
+    }
+
+    let artist_data = user_list.find(findArtist);
+
+    console.log(userEmail)
+
+    document.getElementById("list1").removeAttribute("style","display:none")
+    document.getElementById("list1").setAttribute("style","background-color:rgb(236, 48, 48)")
+
 
 function getData(){  
-    let name = document.getElementById("popo").value
-        bpm = document.getElementById("popo1").value
-        key = document.getElementById("popo2").value
-        genre = document.querySelector(".genre").value 
+    let name = document.getElementById("trackname").value
+        bpm = document.getElementById("bpm").value
+        key = document.getElementById("key").value
+        genre = document.querySelector("#genre").value 
+        daw =document.getElementById("daw").value
         audio = document.querySelector(".audio_source").value
         image = document.querySelector(".image_source").value
         detail = document.getElementById("text1").value
         price = document.getElementById("Price").value;
+        lyrics = document.querySelector("#lyric").value;
         product_unique_id = uuidv4();
 
-    let trackData =JSON.parse(localStorage.getItem('trackName')) ||[];
+
+        let trackData =JSON.parse(localStorage.getItem('trackName')) || [];
    
-        trackData.push({"trackname":name, "bpm": bpm,"key":key,"genre": genre, "detail": detail, "price":price,"productId":product_unique_id});
+        trackData.push({"trackname":name, "bpm": bpm,"key":key,"genre": genre, "detail": detail, "price":price,"songId":product_unique_id,"daw":daw,"lyrics":lyrics,"UserEmail":userEmail,"artistName":artist_data["artistName"]});
         localStorage.setItem("trackName",JSON.stringify(trackData));
+
         
-        location.href="../seller profile and upload a track/seller profile.html"
+    
+        location.href="../homepage/buyer homepage.html"
         
        
-
       }
+
+      document.getElementById("list").addEventListener("click",getData)
+
+      // Profile image Upload API
+
+    //   let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dvb2bkrx9/upload'
+    // let CLOUDINARY_secret = 'tommy';
+
+    
+    // let fileUpload = document.querySelector(".image_source");
+
+    // fileUpload.addEventListener("change", async function (event) {
+    //   let file = event.target.files[0];
+    //   let formData = new FormData();
+    //   formData.append('file', file);
+    //   formData.append('upload_preset', CLOUDINARY_secret);
+
+    // axios({
+    //     url: CLOUDINARY_URL,
+    //     method: 'post',
+    //     headers: {
+    //       'Content-Type': 'application/x-www-form-urlencoded'
+    //     },
+    //     data: formData
+    //   }).then(function (res) {
+    //     console.log(res);
+    //     // Store the URL in localStorage
+    //     let userRecords = res.data.secure_url;
+    //     localStorage.setItem(userRecords)
+    //   }).catch(function (err) {
+    //     console.error(err);
+    //   });
+    // });
+
+      
       
 
-      let ProductID = JSON.parse(localStorage.getItem("productId"));
+      let ProductID = JSON.parse(localStorage.getItem("songId"));
       let trackList = JSON.parse(localStorage.getItem("trackName"));
 
+      if(localStorage.getItem("songId")){
+
       function findTrack(e){
-        return e.productId==ProductID
+        return e.songId==ProductID
       }
        NewTrack= trackList.find(findTrack);
        console.log(NewTrack)
     
        function check(e){
-        if(localStorage.getItem("productId")!==null){
+        
         NewTrack= trackList.find(findTrack);
-       document.getElementById("popo").value=NewTrack["trackname"];
-       document.getElementById("popo1").value=NewTrack["bpm"];
-       document.getElementById("popo2").value=NewTrack["key"];
-       document.querySelector(".genre").value=NewTrack["genre"];
+       document.getElementById("trackname").value=NewTrack["trackname"];
+       document.getElementById("bpm").value=NewTrack["bpm"];
+       document.getElementById("key").value=NewTrack["key"];
+       document.querySelector("#genre").value=NewTrack["genre"];
        document.getElementById("text1").value=NewTrack["detail"];
-       document.getElementById("Price").value=NewTrack["price"];}
-        }
+       document.getElementById("Price").value=NewTrack["price"];
+       document.getElementById("daw").value=NewTrack["daw"];
+       document.getElementById("lyric").value=NewTrack["lyrics"];
+       document.getElementById('list2').style.display = "inline"
+       document.getElementById('list').style.display = "none"
+
+    
+    }
+
+        
         window.addEventListener("load",check)
+}
 
        
-       document.getElementById("list1").removeAttribute("style","display:none")
-       document.getElementById("list1").setAttribute("style","background-color: rgb(135, 0, 0)")
+       
+       
+      if(localStorage.getItem("songId")){
 
-
-      document.getElementById("list").addEventListener("click",getData)
-      document.getElementById("list").addEventListener("click",update)
-
-
+        
 
       function update(e){
+
         // getting the updated data from the input field
-        updatename = document.getElementById("popo").value;
-        updatebpm = document.getElementById("popo1").value
-        updatekey = document.getElementById("popo2").value
-        updategenre = document.querySelector(".genre").value 
+        updatename = document.getElementById("trackname").value;
+        updatebpm = document.getElementById("bpm").value
+        updatekey = document.getElementById("key").value
+        updategenre = document.querySelector("#genre").value 
         updatedetail = document.getElementById("text1").value
         updateprice = document.getElementById("Price").value
+        updatedaw = document.getElementById("daw").value
+        updatelyric = document.getElementById("lyric").value
 
-        location.href="../seller profile and upload a track/seller profile.html"
+        
 
        // paste the updated data to the correct object
        NewTrack["trackname"] = updatename;
        NewTrack["bpm"] = updatebpm;
        NewTrack["key"] = updatekey;
-       NewTrack["genre"] = updategenre
-       NewTrack["detail"]=updatedetail
-       NewTrack["price"]=updateprice
+       NewTrack["genre"] = updategenre;
+       NewTrack["detail"]=updatedetail;
+       NewTrack["price"]=updateprice;
+       NewTrack["daw"]=updatedaw;
+       NewTrack["lyrics"]=updatelyric;
        // again paste it to the
        localStorage.setItem("trackName", JSON.stringify(trackList)); 
+
+       location.href="../profile.html"
                    
    }
+}
+
+        document.getElementById("list2").addEventListener("click",update)
 
    let del_product = document.querySelector("#list1");
-        del_product.addEventListener("click", delData);
+        
         function delData() {
-            if(localStorage.getItem("productId")){
+            if(localStorage.getItem("songId")){
             if (confirm("Are you sure?")) {
-                let ProductID = JSON.parse(localStorage.getItem("productId"));
+                let ProductID = JSON.parse(localStorage.getItem("songId"));
                 let trackList = JSON.parse(localStorage.getItem("trackName"));
                 function find_data(e) {
-                    return e.productId == ProductID;
+                    return e.songId==ProductID;
                 }
                 product_data = trackList.find(find_data);
                 const indexOfproduct = trackList.indexOf(product_data);
                 trackList.splice(indexOfproduct, 1);
                 localStorage.setItem('trackName', JSON.stringify(trackList));
-                location.href="../seller profile and upload a track/seller profile.html"
+                location.href="../profile.html"
                 
             }
         };
         }
       
+        del_product.addEventListener("click", delData);
       
 
     // document.querySelector (".image_source").addEventListener("change", function () {

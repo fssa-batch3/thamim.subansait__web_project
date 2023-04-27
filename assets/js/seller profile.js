@@ -1,91 +1,90 @@
 const trackproduct = [
-    {
-      "Image": {
-        source: "../../assets/img/cover4.png",
-      },
-      "trackname": "beat001",
-      "artistname": "justin",
+  {
+    Image: {
+      source: '../../assets/img/cover4.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover1.png"
-      },
-      "trackname": "beat002",
-      "artistname": "thamim",
+    trackname: 'beat001',
+    artistname: 'justin',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover1.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover2.png"
-      },
-      "trackname": "hard 001",
-      "artistname": "tommy",
+    trackname: 'beat002',
+    artistname: 'thamim',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover2.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover3.png"
-      },
-      "trackname": "fresh beat",
-      "artistname": "vignesh",
+    trackname: 'hard 001',
+    artistname: 'tommy',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover3.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover5.png"
-      },
-      "trackname": "beatsworld",
-      "artistname": "ajun",
+    trackname: 'fresh beat',
+    artistname: 'vignesh',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover5.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover6.png"
-      },
-      "trackname": "soultype",
-      "artistname": "j cole",
+    trackname: 'beatsworld',
+    artistname: 'ajun',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover6.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover7.png"
-      },
-      "trackname": "Blue eyes",
-      "artistname": "ji ji",
+    trackname: 'soultype',
+    artistname: 'j cole',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover7.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover10.png"
-      },
-      "trackname": "post type",
-      "artistname": "modi ji",
+    trackname: 'Blue eyes',
+    artistname: 'ji ji',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover10.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover5.png"
-      },
-      "trackname": "sixnine",
-      "artistname": "anil",
+    trackname: 'post type',
+    artistname: 'modi ji',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover5.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover7.png"
-      },
-      "trackname": "good",
-      "artistname": "turtle",
+    trackname: 'sixnine',
+    artistname: 'anil',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover7.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover4.png"
-      },
-      "trackname": "ariana",
-      "artistname": "beyonce",
+    trackname: 'good',
+    artistname: 'turtle',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover4.png',
     },
-    {
-      "Image": {
-        source: "../../assets/img/cover1.png"
-      },
-      "trackname": "T-gan",
-      "artistname": "painkiller",
-    }
+    trackname: 'ariana',
+    artistname: 'beyonce',
+  },
+  {
+    Image: {
+      source: '../../assets/img/cover1.png',
+    },
+    trackname: 'T-gan',
+    artistname: 'painkiller',
+  },
 
-
-  ]
+];
 
 let track;
 let imageContainer;
@@ -94,76 +93,61 @@ let textContainer;
 let trackName;
 let edit;
 
+const loadData = JSON.parse(localStorage.getItem('trackName'));
 
+// for to filter track for each seller
 
-{/* <div class="spread">
-              <div class="card">
-                <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02b6b3b7f26f0bc0e0197163a0" alt="track poster">
-                </div>
-                <div class="text1">
-                  <h3>Track Name</h3>
-                </div>
-                <button type="button" class="btn1" style="background-color: rgb(159, 0, 0); width: 20%;">Edit</button> */}
+const Email = JSON.parse(localStorage.getItem('userEmail'));
+const filteredData = loadData.filter((item) => item.UserEmail === Email);
 
-    let loadData = JSON.parse(localStorage.getItem("trackName"))
-    
+for (let i = 0; i < filteredData.length; i++) {
+  track = document.createElement('div');
+  track.setAttribute('class', 'spread1');
 
-for(let i=0;i<loadData.length;i++){
+  imageContainer = document.createElement('div');
+  imageContainer.setAttribute('class', 'card');
+  track.append(imageContainer);
 
-    track=document.createElement("div");
-    track.setAttribute("class","spread1");
+  TrackImage = document.createElement('img');
+  TrackImage.setAttribute('loading', 'lazy');
+  TrackImage.setAttribute('class', 'trackPoster');
+  TrackImage.setAttribute('src', trackproduct[i].Image.source);
+  TrackImage.setAttribute('alt', 'trackPoster');
+  imageContainer.append(TrackImage);
 
-    imageContainer=document.createElement("div");
-    imageContainer.setAttribute("class","card");
-    track.append(imageContainer);
+  textContainer = document.createElement('div');
+  textContainer.setAttribute('class', 'text1');
+  track.append(textContainer);
 
-    TrackImage=document.createElement("img");
-    TrackImage.setAttribute("loading","lazy");
-    TrackImage.setAttribute("class","trackPoster")
-    TrackImage.setAttribute("src",trackproduct[i]["Image"]["source"]);
-    TrackImage.setAttribute("alt","trackPoster");
-    imageContainer.append(TrackImage)
+  trackName = document.createElement('h3');
+  trackName.innerText = filteredData[i].trackname;
+  textContainer.append(trackName);
 
-    textContainer=document.createElement("div");
-    textContainer.setAttribute("class","text1");
-    track.append(textContainer);
+  edit = document.createElement('button');
+  edit.setAttribute('type', 'button');
+  edit.setAttribute('class', 'btn_edit');
+  edit.setAttribute('data-id', filteredData[i].songId);
+  edit.setAttribute('style', "background-color: rgb(159, 0, 0); width: 20%; border-radius: 5px; font-family:'Poppins', sans-serif; font-weight: bold; font-size:18px; color:black;");
+  edit.innerText = ['edit'];
+  track.append(edit);
 
-    trackName=document.createElement("h3")
-    trackName.innerText=loadData[i]["trackname"];
-    textContainer.append(trackName);
-
-    edit=document.createElement("button");
-    edit.setAttribute("type","button");
-    edit.setAttribute("class","btn_edit");
-    edit.setAttribute("data-id", loadData[i]["productId"])
-    edit.setAttribute("style","background-color: rgb(159, 0, 0); width: 20%;");
-    edit.innerText=["edit"]
-    track.append(edit)
-
-
-    document.querySelector(".recent2").append(track)
-    console.log(track)
-
-
-
-
+  document.querySelector('.recent3').append(track);
+  console.log(track);
 }
 
 // function findTrack(){
 //     document.querySelector(".btn1").addEventListener("click",()=>{
-        
+
 //     })
 // }
 
-let edit_button = document.querySelectorAll("button.btn_edit")
+const edit_button = document.querySelectorAll('button.btn_edit');
 
-    edit_button.forEach(function (findId){
-        findId.addEventListener("click", function (){
-            let dataId = this.dataset.id;
-            localStorage.setItem("productId",JSON.stringify(dataId))
-            location.href="../seller profile and upload a track/upload a track .html"
-            console.log(dataId)
-            
-})
-
-})
+edit_button.forEach((findId) => {
+  findId.addEventListener('click', function () {
+    const dataId = this.dataset.id;
+    localStorage.setItem('songId', JSON.stringify(dataId));
+    location.href = '../pages/seller profile and upload a track/upload a track .html';
+    console.log(dataId);
+  });
+});

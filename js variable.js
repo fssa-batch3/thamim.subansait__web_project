@@ -1,8 +1,6 @@
-
-
-let string = "";
-for(let i = 5; i >=1;i--){
-    string+= i+ " ";
+let string = '';
+for (let i = 5; i >= 1; i--) {
+  string += `${i} `;
 }
 console.log(string);
 
@@ -18,8 +16,7 @@ console.log(string);
 // let second=" ";
 // for(let i = 1; i <=1;i++){
 //     string+="    "+i;
-    
-    
+
 // }
 // console.log(string)
 
@@ -38,19 +35,15 @@ console.log(string);
 // }
 // console.log(str)
 
-
-
 // let n = 5
 // let string = "";
 // for(let i = 1; i <=n;i++){
-    
+
 //     string+= i+ " ";
 // }
 // console.log(string);
 
-
-
-//-----------------------------------------//
+// -----------------------------------------//
 
 // let n = 5;
 // // Repeat n times
@@ -58,13 +51,12 @@ console.log(string);
 // //	//spaces + sequence of numbers
 // 	console.log( Spaces((n - i + 1)) + NumSequence(i));
 // }
- 
-//console.log( getSpaces(3) + getNumSequence(1));
 
+// console.log( getSpaces(3) + getNumSequence(1));
 
-//console.log( getSpaces(2) + getNumSequence(2));
+// console.log( getSpaces(2) + getNumSequence(2));
 
-//console.log( getSpaces(1) + getNumSequence(3));
+// console.log( getSpaces(1) + getNumSequence(3));
 
 // function space(n) {
 // 	let str = "";
@@ -74,9 +66,8 @@ console.log(string);
 // 	return str;
 // }
 
-
 // function NumSequence(n) {
-	
+
 // 	let numseq_str = "";
 // 	for(let i = 1; i <= n; i++) {
 // 		numseq_str = numseq_str + i + " ";
@@ -84,10 +75,10 @@ console.log(string);
 // 	}
 // 	return numseq_str;
 // }
-		
-//Reverse half diamond
-	//Repeat 2 times
-		// spaces + sequence in reverse of numbers
+
+// Reverse half diamond
+// Repeat 2 times
+// spaces + sequence in reverse of numbers
 
 // let n=3;
 // let string="";
@@ -136,7 +127,6 @@ console.log(string);
 //   console.log(+number())
 // }
 
-
 // let str = "";
 // function series(n) {
 //   str = "";
@@ -160,11 +150,11 @@ console.log(string);
 // // repeating code
 // series(n);
 
-let n=5
-let str="";
-for(let i=n;i>2;i--){
-  str += i+"."
-  console.log(str)
+const n = 5;
+let str = '';
+for (let i = n; i > 2; i--) {
+  str += `${i}.`;
+  console.log(str);
 }
 
 // const objectsArray = [
@@ -183,4 +173,3 @@ for(let i=n;i>2;i--){
 // const oaString = localStorage.getItem("objectsArray");
 // //Convert the string back to an array of objects using JSON.parse()
 // const oArray = JSON.parse(objectsArrayString);
-
