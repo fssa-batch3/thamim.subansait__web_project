@@ -132,16 +132,16 @@ const sellerHeader = `<div class="header">
       /></a>
       </div>`;
 
-const userRole = JSON.parse(localStorage.getItem('userRoleC'));
+const userRole = JSON.parse(localStorage.getItem("userRoleC"));
 
-if (userRole === 'buyer') {
-  document.body.insertAdjacentHTML('afterbegin', buyerHeader);
-} else if (userRole === 'seller') {
-  document.body.insertAdjacentHTML('afterbegin', sellerHeader);
+if (userRole === "buyer") {
+  document.body.insertAdjacentHTML("afterbegin", buyerHeader);
+} else if (userRole === "seller") {
+  document.body.insertAdjacentHTML("afterbegin", sellerHeader);
 }
 
-document.getElementById('uploadtrack').addEventListener('click', () => {
-  if (localStorage.getItem('songId')) {
-    localStorage.removeItem('songId');
+document.getElementById("uploadtrack").addEventListener("click", () => {
+  if (localStorage.getItem("songId")) {
+    localStorage.removeItem("songId");
   }
 });
