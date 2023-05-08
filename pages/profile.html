@@ -191,7 +191,8 @@
 
         <script src="../assets/js/header.js"></script>
         
-        <script>function buyerFeat() {
+        <script>
+        function buyerFeat() {
             // Create the parent container div
   const secondRightDiv = document.createElement("div");
   secondRightDiv.classList.add("secondright");
@@ -331,25 +332,29 @@ function sellerFeat() {
 
 const UserRole = JSON.parse(localStorage.getItem("userRoleC"));
 
-if (UserRole == "buyer") {
-            buyerFeat();
-            document.getElementById("artist").style.display = "none";
+if (UserRole === "buyer") {
+  buyerFeat();
+  document.getElementById("artist").style.display = "none";
 } else {
-            sellerFeat();
+  sellerFeat();
 }
 
 const logout = document.querySelector("#logout");
 logout.addEventListener("click", () => {
-            window.location.href = "/index.html";
+  window.location.href = "/index.html";
 });
 
 const getEmail = JSON.parse(localStorage.getItem("userEmail"));
+
 const user_list = JSON.parse(localStorage.getItem("user_list"));
+
 const user_liked = JSON.parse(localStorage.getItem("Liked"));
 
-// filter the liked tracks according to the user
+console.log(user_liked[0]["userEmail"]);
 
-// let filteredliked = user_liked.filter(item => item.userEmail === getEmail)
+// Filter the user_liked data according to the userEmail property of each liked track
+const filteredLiked = user_liked.filter((e)=> e.userEmail === getEmail);
+console.log(filteredLiked);
 
 function deleteuser(e) {
   if (localStorage.getItem("user_list")) {
@@ -434,7 +439,7 @@ editThing.addEventListener("click", findReadonly);
 
 // like track code here first for to loop the cards.
 
-for (let i = 0; i < filteredliked.length; i++) {
+for (let i = 0; i < filteredLiked.length; i++) {
   track = document.createElement("div");
   track.setAttribute("class", "spread");
 
@@ -445,7 +450,7 @@ for (let i = 0; i < filteredliked.length; i++) {
   TrackImage = document.createElement("img");
   TrackImage.setAttribute("loading", "lazy");
   TrackImage.setAttribute("class", "trackPoster");
-  TrackImage.setAttribute("src", `https://source.unsplash.com/random/200x200`);
+  TrackImage.setAttribute("src", `https://loremflickr.com/320/240`);
   TrackImage.setAttribute("alt", "trackPoster");
   imageContainer.append(TrackImage);
 
@@ -454,11 +459,11 @@ for (let i = 0; i < filteredliked.length; i++) {
   track.append(textContainer);
 
   trackName = document.createElement("h3");
-  trackName.innerText = filteredliked[i].Trackname;
+  trackName.innerText = filteredLiked[i].Trackname;
   textContainer.append(trackName);
 
   ArtistName = document.createElement("p");
-  ArtistName.innerText = filteredliked[i].artistname;
+  ArtistName.innerText = filteredLiked[i].artistname;
   textContainer.append(ArtistName);
 
   document.querySelector(".liked").append(track);

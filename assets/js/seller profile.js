@@ -99,7 +99,7 @@ const loadData = JSON.parse(localStorage.getItem("trackName"));
 const Email = JSON.parse(localStorage.getItem("userEmail"));
 const filteredData = loadData.filter((item) => item.UserEmail === Email);
 
-console.log(filteredData);
+
 
 for (let i = 0; i < filteredData.length; i++) {
   track = document.createElement("div");
