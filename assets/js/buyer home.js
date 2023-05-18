@@ -12,8 +12,10 @@ const musicContainer = document.querySelector('.music-player');
     const likeBtn = document.querySelector('#like'); 
     const sound = document.querySelector('#voume');
     console.log(sound)
-    
 
+ 
+   
+    
     // upload song songId removing in local storage
 
     // document.querySelector(".upload").addEventListener("click",()=>{
@@ -146,7 +148,9 @@ const musicContainer = document.querySelector('.music-player');
     
     
 
-    
+
+
+
      
     
 
@@ -159,6 +163,9 @@ const musicContainer = document.querySelector('.music-player');
      
      
     let track;
+    let trackContainer;
+    let track_name;
+    let artistname;
     let product_image;
 
     let loadData = JSON.parse(localStorage.getItem('trackName'))
@@ -177,7 +184,7 @@ const musicContainer = document.querySelector('.music-player');
       track.append(trackContainer)
   
       product_image = document.createElement("img"); 
-      product_image.setAttribute("src", "https://loremflickr.com/320/240");
+      product_image.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
       trackContainer.append(product_image);
 
       track_name = document.createElement("p");
@@ -192,20 +199,31 @@ const musicContainer = document.querySelector('.music-player');
       document.querySelector("div.productlist").append(track);
      
     }
+
+
        
 const volumeBar = document.querySelector('.volume-bar-1');
 const volumeBarFill = document.querySelector('.volumeProgress');
+const mute=document.querySelector("#voume")
 
 let isDragging = false;
 
+
 function setVolumeFromMousePosition(event) {
-  
-  const volumeBarWidth = event.width;
-  const mouseX = event.clientX - volumeBarWidth;
-  const volumePercentage = 1 - (mouseX / volumeBarWidth);
+  const volumeBarWidth = volumeBar.offsetWidth;
+  const mouseX = event.clientX - volumeBar.getBoundingClientRect().left;
+  const volumePercentage = (mouseX / volumeBarWidth); 
   audio.volume = volumePercentage;
-  volumeBarFill.style.width = `${mouseX}%`;
+  // console.log(volumePercentage)
+  volumeBarFill.style.width = `${100 * mouseX / volumeBarWidth}%`;
+
+  const volumeTurn = volumePercentage * 10
+  // console.log(volumeTurn)
+
+ return volumeTurn
 }
+
+
 
 volumeBar.addEventListener('mousedown', (event) => {
   isDragging = true;
@@ -223,4 +241,25 @@ document.addEventListener('mouseup', () => {
 });
 
 
-    
+mute.addEventListener("click", () => {
+  mute.classList.toggle("mute")
+
+  if(mute.classList.contains("mute")){
+    mute.classList.add("fas", "fa-volume-mute");
+    audio.volume = 0;
+  }
+  else{
+    mute.classList.remove("fas", "fa-volume-mute");
+    mute.classList.add("fas", "fa-volume-down")
+    audio.volume = 1;
+  }
+})
+
+
+// import { add } from "../js/tracklistening.js";
+// console.log(add(4))
+
+
+
+
+

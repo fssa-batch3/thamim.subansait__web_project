@@ -1,3 +1,5 @@
+
+    
     const userEmail=JSON.parse(localStorage.getItem("userEmail"));
     let user_list=JSON.parse(localStorage.getItem("user_list"));
     function findArtist(e){
@@ -41,36 +43,113 @@ function getData(){
 
       document.getElementById("list").addEventListener("click",getData)
 
-      // Profile image Upload API
 
-    //   let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dvb2bkrx9/upload'
-    // let CLOUDINARY_secret = 'tommy';
+
+//       const fileInput = document.getElementById('fileInputField');
+
+// fileInput.addEventListener('change', (event) => {
+//   const file = event.target.files[0];
+  
+//   const objectURL = URL.createObjectURL(file);
+//   localStorage.setItem('image', objectURL);
+// });
+
+    //   Profile image Upload API
 
     
-    // let fileUpload = document.querySelector(".image_source");
 
-    // fileUpload.addEventListener("change", async function (event) {
-    //   let file = event.target.files[0];
-    //   let formData = new FormData();
-    //   formData.append('file', file);
-    //   formData.append('upload_preset', CLOUDINARY_secret);
+// // Assuming you have a file input field with the id "file-upload"
 
-    // axios({
-    //     url: CLOUDINARY_URL,
-    //     method: 'post',
-    //     headers: {
-    //       'Content-Type': 'application/x-www-form-urlencoded'
-    //     },
-    //     data: formData
-    //   }).then(function (res) {
-    //     console.log(res);
-    //     // Store the URL in localStorage
-    //     let userRecords = res.data.secure_url;
-    //     localStorage.setItem(userRecords)
-    //   }).catch(function (err) {
-    //     console.error(err);
-    //   });
-    // });
+// import axios from "axios";
+
+// const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dxxo3kzz2/image/upload';
+// const CLOUDINARY_UPLOAD_PRESET  = 'thamimtommy';
+
+// const uploadImage = (file) => {
+//   const formData = new FormData();
+//   formData.append('file', file);
+//   formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+//   return axios.post(CLOUDINARY_URL, formData, {
+//     headers: {'Content-Type': 'multipart/form-data'}
+//   })
+//   .then(response => {
+//     console.log('Image uploaded:', response.data.secure_url);
+//     return response.data.secure_url;
+//   })
+//   .catch(error => {
+//     console.error('Error during image upload:', error);
+//     return null;
+//   });
+// }
+
+// function handleImageUpload(event) {
+//     const file = event.target.files[0];
+//     if (file) {
+//       uploadImage(file)
+//         .then(uploadedImageUrl => {
+//           // Do something with the uploaded image URL
+//         })
+//         .catch(error => {
+//           console.error(error);
+//         });
+//     }
+//   }
+
+// get the audio file input element
+const audioFileInput = document.querySelector('.audioSource');
+
+// add an event listener to the input element
+audioFileInput.addEventListener('change', function(e) {
+  // get the file object
+  const file = e.target.files[0];
+  
+  // create a new FileReader object
+  const reader = new FileReader();
+
+  // add an event listener to the FileReader object
+  reader.addEventListener('load', function() {
+    // create a new AudioContext
+    const audioContext = new AudioContext();
+
+    // decode the audio data
+    audioContext.decodeAudioData(reader.result, function(decodedData) {
+      // create an OfflineAudioContext with the same sample rate as the decoded data
+      const offlineContext = new OfflineAudioContext(decodedData.numberOfChannels, decodedData.length, decodedData.sampleRate);
+
+      // create a buffer source node and connect it to the offline context
+      const source = offlineContext.createBufferSource();
+      source.buffer = decodedData;
+      source.connect(offlineContext.destination);
+
+      // start the buffer source node and render the audio to the offline context
+      source.start();
+      offlineContext.startRendering().then(function(renderedBuffer) {
+        // create a new Blob with the rendered audio data
+        const blob = new Blob([renderedBuffer.getChannelData(0)], { type: 'audio/wav' });
+
+        // create a new FileReader object
+        const blobReader = new FileReader();
+
+        // add an event listener to the blob FileReader object
+        blobReader.addEventListener('load', function() {
+          // get the compressed audio data URL
+          const compressedDataUrl = blobReader.result;
+
+          // save the compressed audio data URL in local storage
+          localStorage.setItem('compressedDataUrl', compressedDataUrl);
+        });
+
+        // read the blob as a data URL
+        blobReader.readAsDataURL(blob);
+      });
+    });
+  });
+
+  // read the file as an array buffer
+  reader.readAsArrayBuffer(file);
+});
+
 
       
       
