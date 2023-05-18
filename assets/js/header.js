@@ -140,8 +140,10 @@ if (userRole === "buyer") {
   document.body.insertAdjacentHTML("afterbegin", sellerHeader);
 }
 
+if(userRole ==="seller"){
+
 document.getElementById("uploadtrack").addEventListener("click", () => {
   if (localStorage.getItem("songId")) {
     localStorage.removeItem("songId");
   }
-});
+})};

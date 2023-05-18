@@ -129,7 +129,7 @@
                         <h2 id="drag-text">Drag and Drop image</h2>
                         <h3>Or</h3>
                         <button class="browseFile" id="browseFile">Browse File</button>
-                        <input type="file" id="fileInputField" class="image_source">
+                        <input type="file" id="fileInputField" class="image_source" onchange={handleImageUpload}/>
                     </div>
                 </div>
 
@@ -156,7 +156,7 @@
                     <h2 id="drag-text">Drag and Drop Audio File</h2>
                     <h3>Or</h3>
                     <button class="browseFile" id="browseFile">Browse File</button>
-                    <input type="file" id="fileInputField" class="audio_source">
+                    <input type="file" id="fileInputField" class="audioSource">
                 </div>
             </div>
 
@@ -225,9 +225,9 @@
             </div>
         </div>
 
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../assets/js/upload file js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-        <script src="../../assets/js/header.js"></script>
+        <script src="../../assets/js/header.js"></script>g
     </body>
 </html>

@@ -20,135 +20,31 @@
         <div class="content">
             <div class="leftside">
             
-                <div class="recent">
+                <div class="recent" id="recently">
                     <h2>Recently Played</h2>
-              
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02b6b3b7f26f0bc0e0197163a0" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-        
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e0282a4489bc3e7f3d1372b3350" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-          
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02a88e2419e55cfdf1bf2a2fe2" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-            
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e020d66934f5370419636c78f18" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-              
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02e3b15ec025f8e74aac8e9393" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-                
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e0239fe640ab73db368eeac0f90" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-                  
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02905fcfad5d9bd56876735e84" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-                    
-                    </div>
-
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e0282a4489bc3e7f3d1372b3350" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-                      
-                    </div>
-            
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02a88e2419e55cfdf1bf2a2fe2" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
+                    <h3>Today</h3>
+                    <div class="today">
                         
-                    </div>
-            
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e020d66934f5370419636c78f18" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-                          
-                    </div>
-            
-                    <div class="spread">
-                        <div class="card">
-                            <img loading="lazy"src="https://i.scdn.co/image/ab67616d00001e02e3b15ec025f8e74aac8e9393" alt="track poster">
-                        </div>
-                        <div class="text">
-                            <h3>Track Name</h3>
-                            <p>Artist Name</p>
-                        </div>
-                            
-                    </div>
+                        <h4 class="Nosong">NO Song</h4>
+                   </div>
+                   <h3>Yesterday</h3>
+                   <div class="yesterday">
+                    
+                    
+                    <h4 class="NosongY">NO Song</h4>
+               </div>
+               <h3>later this Month</h3>
+               <div class="thisweek">
+                
+           </div>
+
+
             
                 </div>
                 <div class="recent">
                     <h2>Liked Track</h2>
                     <div class="liked">
-
+                        
                     </div>
                 </div>
             
@@ -192,12 +88,15 @@
         <script src="../assets/js/header.js"></script>
         
         <script>
+            const getEmail = JSON.parse(localStorage.getItem("userEmail"));
+
         function buyerFeat() {
             // Create the parent container div
   const secondRightDiv = document.createElement("div");
   secondRightDiv.classList.add("secondright");
 
   // Create the recently bought section
+
   const recent1Div = document.createElement("div");
   recent1Div.classList.add("recent1");
 
@@ -246,41 +145,55 @@
 
   // Create the save later section
   const recent2Div = document.createElement("div");
-  recent2Div.classList.add("recent2");
+recent2Div.classList.add("recent2");
+const recent2Header = document.createElement("h2");
+recent2Header.textContent = "Save later";
+recent2Div.appendChild(recent2Header);
 
-  const recent2Header = document.createElement("h2");
-  recent2Header.textContent = "Save later";
+if(localStorage.getItem("saved")){
+const saved = JSON.parse(localStorage.getItem("saved"));
+const filteredSaved = saved.filter((e) => e.userEmail === getEmail);
+console.log(filteredSaved)
 
+
+
+
+for (let i = 0; i < filteredSaved.length; i++) {
+    const link = document.createElement("a");
+  link.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+filteredSaved[i]["trackid"])
+  link.setAttribute("style", "color:white; text-decoration:none")
   const spreadDiv2 = document.createElement("div");
   spreadDiv2.classList.add("spread");
+
 
   const cardDiv2 = document.createElement("div");
   cardDiv2.classList.add("card");
 
   const img2 = document.createElement("img");
   img2.setAttribute("loading", "lazy");
-  img2.setAttribute(
-    "src",
-    "https://i.scdn.co/image/ab67616d00001e02b6b3b7f26f0bc0e0197163a0"
-  );
+  img2.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
 
   const textDiv2 = document.createElement("div");
   textDiv2.classList.add("text1");
 
   const textHeader2 = document.createElement("h3");
-  textHeader2.textContent = "Track Name";
+  textHeader2.textContent = filteredSaved[i]["Trackname"];
 
   const textPara2 = document.createElement("p");
-  textPara2.textContent = "Artist Name";
+  textPara2.textContent = filteredSaved[i]["artistname"];
 
   cardDiv2.appendChild(img2);
   textDiv2.appendChild(textHeader2);
   textDiv2.appendChild(textPara2);
   spreadDiv2.appendChild(cardDiv2);
   spreadDiv2.appendChild(textDiv2);
+  link.appendChild(spreadDiv2);
+  recent2Div.appendChild(link)
+}
+}
 
-  recent2Div.appendChild(recent2Header);
-  recent2Div.appendChild(spreadDiv2);
+
+  
 
   // Add everything to the parent container
   secondRightDiv.appendChild(recent1Div);
@@ -344,17 +257,10 @@ logout.addEventListener("click", () => {
   window.location.href = "/index.html";
 });
 
-const getEmail = JSON.parse(localStorage.getItem("userEmail"));
-
 const user_list = JSON.parse(localStorage.getItem("user_list"));
 
-const user_liked = JSON.parse(localStorage.getItem("Liked"));
 
-console.log(user_liked[0]["userEmail"]);
 
-// Filter the user_liked data according to the userEmail property of each liked track
-const filteredLiked = user_liked.filter((e)=> e.userEmail === getEmail);
-console.log(filteredLiked);
 
 function deleteuser(e) {
   if (localStorage.getItem("user_list")) {
@@ -439,7 +345,20 @@ editThing.addEventListener("click", findReadonly);
 
 // like track code here first for to loop the cards.
 
+if(localStorage.getItem("Liked")){
+
+const user_list = JSON.parse(localStorage.getItem("user_list"));
+
+const user_liked = JSON.parse(localStorage.getItem("Liked"));
+
+// Filter the user_liked data according to the userEmail property of each liked track
+const filteredLiked = user_liked.filter((e)=> e.userEmail === getEmail);
+
 for (let i = 0; i < filteredLiked.length; i++) {
+    const link = document.createElement("a");
+  link.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+filteredLiked[i]["trackid"])
+  link.setAttribute("style", "color:white; text-decoration:none")
+
   track = document.createElement("div");
   track.setAttribute("class", "spread");
 
@@ -450,7 +369,7 @@ for (let i = 0; i < filteredLiked.length; i++) {
   TrackImage = document.createElement("img");
   TrackImage.setAttribute("loading", "lazy");
   TrackImage.setAttribute("class", "trackPoster");
-  TrackImage.setAttribute("src", `https://loremflickr.com/320/240`);
+  TrackImage.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
   TrackImage.setAttribute("alt", "trackPoster");
   imageContainer.append(TrackImage);
 
@@ -466,9 +385,76 @@ for (let i = 0; i < filteredLiked.length; i++) {
   ArtistName.innerText = filteredLiked[i].artistname;
   textContainer.append(ArtistName);
 
-  document.querySelector(".liked").append(track);
+  link.append(track)
+
+
+  document.querySelector(".liked").append(link);
   console.log(track);
 }
+}
+
+const recentlyPlayed = JSON.parse(localStorage.getItem("recentlyPlayed"));
+const fileterRecentlyPlayed = recentlyPlayed.filter(track => track.userEmail == getEmail)
+const UpdateDate = new Date();
+const formattedDate = `${UpdateDate.getDate()}/${UpdateDate.getMonth() + 1}/${UpdateDate.getFullYear()}`;
+const perviousDate = `${UpdateDate.getDate()-1}/${UpdateDate.getMonth() + 1}/${UpdateDate.getFullYear()}`;
+
+const time =`${UpdateDate.toLocaleTimeString()}`
+fileterRecentlyPlayed.sort((a, b) => new Date(b.playedat) - new Date(a.playedat));
+
+console.log(fileterRecentlyPlayed)
+
+function card(trackname,artistName,i){
+
+    const spreadDiv = document.createElement("div");
+    spreadDiv.className="spread"
+    const card = document.createElement("div");
+    card.classList.add("card");
+    const img = document.createElement("img");
+    img.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
+    img.setAttribute("alt", "track poster");
+    img.setAttribute("loading", "lazy");
+    card.appendChild(img);
+    const text = document.createElement("div");
+    text.classList.add("text");
+    const heading = document.createElement("h3");
+    heading.textContent =trackname; 
+    const para = document.createElement("p");
+    para.textContent = artistName; 
+    text.appendChild(heading);
+    text.appendChild(para);
+    
+    spreadDiv.appendChild(card);
+    spreadDiv.appendChild(text);
+
+    return spreadDiv
+    
+}
+
+    for(let i= 0 ; i<fileterRecentlyPlayed.length;i++){
+
+        if(fileterRecentlyPlayed[i]["date"]===formattedDate){
+            document.querySelector(".Nosong").style.display="none";
+            document.querySelector(".today").prepend(card(fileterRecentlyPlayed[i]["trackname"],fileterRecentlyPlayed[i]["artistname"],i))
+        }
+        else if(fileterRecentlyPlayed[i]["date"]===perviousDate){
+            document.querySelector(".NosongY").style.display="none";
+            document.querySelector(".yesterday").prepend(card(fileterRecentlyPlayed[i]["trackname"],fileterRecentlyPlayed[i]["artistname"],i))
+        }
+        else{
+
+            //  let div = document.createElement("div")
+            //  div.setAttribute("class", `${fileterRecentlyPlayed[i]["date"]}`)
+
+             
+
+            document.querySelector(".thisweek").prepend(card(fileterRecentlyPlayed[i]["trackname"],fileterRecentlyPlayed[i]["artistname"],i))
+
+
+
+        }
+    }
+
         </script>
         <script src="../../assets/js/seller profile.js"></script>
         

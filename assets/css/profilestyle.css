@@ -1,4 +1,6 @@
-
+body{
+  overflow: hidden;
+}
 .leftside{
   color: white;  
   margin-top: 20px;
@@ -6,7 +8,8 @@
     
 }
 .card img{
-  width: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 20px;
 }
 .card img:hover{
@@ -38,7 +41,7 @@
       text-align: center;
       padding: 20px;
       border-radius: 20px;
-      height: 17%;
+      height: 25%;
       overflow: scroll;
       margin-bottom: 50px;
       margin-left: 20px;
@@ -50,7 +53,7 @@
   text-align: center;
   padding: 20px;
   border-radius: 20px;
-  height: 17%;
+  height: 25%;
   overflow: scroll;
   margin-bottom: 50px;
   margin-right: 20px;
@@ -61,7 +64,7 @@
   text-align: center;
   padding: 20px;
   border-radius: 20px;
-  height: 17%;
+  height: 25%;
   overflow: scroll;
   margin-bottom: 50px;
 
@@ -206,7 +209,7 @@
   margin-right: 0px;
   position: relative;
   right: 5px;
-  width: 190px;
+  width: 170px;
 }
 .input1 input{
   background-color: #f9f9f9;
@@ -220,7 +223,7 @@
   color: #000000;
   border-radius: 10px;
   margin-left: 46px;
-  width: 51%;
+  width: 47%;
 }
 .btn{
   display: flex;
