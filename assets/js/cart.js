@@ -127,6 +127,7 @@ if (filteredItems.length === 0) {
   // Handle the error (e.g. display a message to the user)
 } else {
   let song;
+  let total=0;
 
   for (let i = 0; i < filteredItems.length; i++) {
     song = createItem(i);
@@ -138,7 +139,10 @@ if (filteredItems.length === 0) {
     document.querySelector(
       `#item-${i} .pricetag`
     ).textContent = `$${filteredItems[i].price}`;
+     total += parseInt(filteredItems[i]["price"])
+
   }
+  document.querySelector("#TotalPrice").textContent = `Total price : $${total}`;
 }
 
 function removeCartItem(index) {
@@ -218,6 +222,14 @@ function hidePaymentPopUp() {
 document.getElementById("sumbitSuccess").addEventListener("click", submitPayment);
 
 document.getElementById("sumbitSuccess").addEventListener("click", ()=>{
-  const filteredItems = cartItem.filter((item) => item.userEmail !== userEmail)
-  localStorage.setItem("cart", JSON.stringify(filteredItems))
+  const filteredItemsNot = cartItem.filter((item) => item.userEmail !== userEmail)
+  localStorage.setItem("cart", JSON.stringify(filteredItemsNot))
+
+  const ordered_items = JSON.parse(localStorage.getItem("BroughtTracks")) || [];
+ 
+  filteredItems.forEach((item) => {
+    ordered_items.push(item);
+});
+
+localStorage.setItem("BroughtTracks",JSON.stringify(ordered_items));
 })

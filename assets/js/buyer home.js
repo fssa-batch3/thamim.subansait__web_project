@@ -1,3 +1,5 @@
+
+
 const musicContainer = document.querySelector('.music-player');
     const artistName= document.querySelector('.artist');
     const playBtn = document.querySelector('.play-pause.fas'); 
@@ -14,17 +16,6 @@ const musicContainer = document.querySelector('.music-player');
     console.log(sound)
 
  
-   
-    
-    // upload song songId removing in local storage
-
-    // document.querySelector(".upload").addEventListener("click",()=>{
-    //   localStorage.removeItem("productId")
-
-    // })
-    
-    
-    
   
     // song names
 
@@ -161,48 +152,8 @@ const musicContainer = document.querySelector('.music-player');
      nextBtn.addEventListener("click",nextSong,);
      likeBtn.addEventListener('click',likesong);
      
-     
-    let track;
-    let trackContainer;
-    let track_name;
-    let artistname;
-    let product_image;
 
-    let loadData = JSON.parse(localStorage.getItem('trackName'))
-
-
-
-
-    for (let i = 0; i<loadData.length; i++) {
-
-      track = document.createElement("div");
-      track.setAttribute("class","tracks")
-
-      trackContainer=document.createElement("a");
-      trackContainer.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+loadData[i]["songId"]);
-      trackContainer.setAttribute("style","text-decoration:none;")
-      track.append(trackContainer)
-  
-      product_image = document.createElement("img"); 
-      product_image.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
-      trackContainer.append(product_image);
-
-      track_name = document.createElement("p");
-      track_name.innerText = loadData[i]["trackname"];
-      trackContainer.append(track_name);
-
-      artistname = document.createElement("p");
-      artistname.innerText = loadData[i]["artistName"];
-      track.append(artistname);
-
-
-      document.querySelector("div.productlist").append(track);
-     
-    }
-
-
-       
-const volumeBar = document.querySelector('.volume-bar-1');
+     const volumeBar = document.querySelector('.volume-bar-1');
 const volumeBarFill = document.querySelector('.volumeProgress');
 const mute=document.querySelector("#voume")
 
@@ -254,10 +205,75 @@ mute.addEventListener("click", () => {
     audio.volume = 1;
   }
 })
+     
+    let track;
+    let trackContainer;
+    let track_name;
+    let artistname;
+    let product_image;
+
+    let loadData = JSON.parse(localStorage.getItem('trackName'))
+
+  let length;
+  if(loadData.length>=5){
+    length = 5
+    console.log(length)
+  }
+  else{
+    length = loadData.length
+    console.log(length)
+  }
+
+
+
+    for (let i = 0; i<length; i++) {
+
+      track = document.createElement("div");
+      track.setAttribute("class","tracks")
+
+      trackContainer=document.createElement("a");
+      trackContainer.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+loadData[i]["songId"]);
+      trackContainer.setAttribute("style","text-decoration:none;")
+      track.append(trackContainer)
+  
+      product_image = document.createElement("img"); 
+      product_image.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
+      trackContainer.append(product_image);
+
+      track_name = document.createElement("p");
+      track_name.innerText = loadData[i]["trackname"];
+      trackContainer.append(track_name);
+
+      artistname = document.createElement("p");
+      artistname.innerText = loadData[i]["artistName"];
+      track.append(artistname);
+
+
+      document.querySelector("div.productlist").append(track);
+     
+    }
+
+
+    const lyricsSection = document.querySelector('.secondright');
+
+document.getElementById("showLyrics").addEventListener("click", ()=>{ 
+   lyricsSection.classList.toggle('hidden');   
+});
+    
+
+// if (JSON.parse(localStorage.getItem("userRoleC")) === "seller") {
+//   alert("Welcome Artist "+ `${JSON.parse(localStorage.getItem("userEmail"))}`)
+// }
+
+
+       
+
 
 
 // import { add } from "../js/tracklistening.js";
 // console.log(add(4))
+
+
 
 
 

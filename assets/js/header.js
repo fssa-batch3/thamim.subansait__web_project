@@ -26,26 +26,49 @@ const buyerHeader = `<div class="header">
     ></i>
   </form>
 </div>
+
+<div class="headerSubFeat">
+
 <div class="dropdown">
-  <span style="color: white; font-size: large">EXPLORE </span>
+  <span style="color: white; font-size: large">Explore </span>
   <div class="dropdown-content">
     <a href="${root}/pages/explore artist.html">Connect with artist</a>
   </div>
 </div>
+<div>
 <a href="${root}/pages/subscription page.html" style="text-decoration: none"
   ><p
     style="
       color: white;
       background-color: #222222;
       border-radius: 10px;
-      padding: 10px;
+      padding: 13px;
       font-size: large;
       width: 140px;
     "
   >
-    SUBSCRPITION
+  Subscription
   </p></a
 >
+</div>
+<div>
+<a href="${root}/pages/becomeArtist.html" style="text-decoration: none"
+  ><p
+    style="
+      color: white;
+      background-color: #222222;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: large;
+      width: 140px;
+      text-align: center;
+    "
+  >
+    Sell your art
+  </p></a
+>
+</div>
+<div>
 <a href="${root}/pages/profile.html"
   ><img
     loading="lazy"
@@ -53,6 +76,8 @@ const buyerHeader = `<div class="header">
     src="${root}/assets/img/icons8-male-user-48.png"
     alt="profile"
 /></a>
+</div>
+<div>
 <a href="${root}/pages/cart/cart.html"
   ><img
     loading="lazy"
@@ -60,6 +85,8 @@ const buyerHeader = `<div class="header">
     src="${root}/assets/img/icons8-shopping-cart-60.png"
     alt="cart icon"
 /></a>
+</div>
+</div>
 </div>`;
 
 const sellerHeader = `<div class="header">
@@ -95,12 +122,21 @@ const sellerHeader = `<div class="header">
           ></i>
         </form>
       </div>
+
+      <div class="headerSubFeat">
+      
+
+
       <div class="dropdown">
-        <span style="color: white; font-size: large">EXPLORE </span>
+        <span style="color: white; font-size: large">Explore</span>
         <div class="dropdown-content">
-          <a href="${root}/pages/explore artist.html">Connect with artist</a>
+          <a href="${root}/pages/explore artist.html">Artists</a>
         </div>
       </div>
+
+    
+
+      <div>
 
       <a href="${root}/pages/subscription page.html" style="text-decoration: none"
         ><p
@@ -108,14 +144,36 @@ const sellerHeader = `<div class="header">
             color: white;
             background-color: #222222;
             border-radius: 10px;
-            padding: 10px;
+            width: auto;
+            padding: 13px;
             font-size: large;
-            width: 140px;
+           
           "
         >
-          SUBSCRPITION
+          Subscription
         </p></a
       >
+      </div>
+
+      <div class="sec-center"> 	
+      
+	  	<input class="dropdown2" type="checkbox" id="dropdown" name="dropdown"/>
+      
+	  	<label class="for-dropdown"  id ="label" for="dropdown">Data</label>
+      
+  		<div class="section-dropdown"> 
+        
+       <a href="../dashboard.html" class="api">Dashboard<i class="fa-solid fa-arrow-right"></i></a>
+        
+		  	<a href="../dashboard.html" class="api">Analytics<i class="fa-solid fa-arrow-right"></i></a>
+ 
+  			<a href="#" class="api">Record Label<i class="fa-solid fa-arrow-right"></i></a>
+        
+  			<a href="../dashboard.html" class="api">Start campaign <i class="fa-solid fa-arrow-right"></i></a>
+  		</div>
+  	</div>
+
+      <div>
       <a href="${root}/pages/profile.html"
         ><img
           loading="lazy"
@@ -123,6 +181,10 @@ const sellerHeader = `<div class="header">
           src="${root}/assets/img/icons8-male-user-48.png"
           alt="profile"
       /></a>
+      </div>
+
+      <div>
+
       <a href="${root}/pages/cart/cart.html"
         ><img
           loading="lazy"
@@ -130,9 +192,18 @@ const sellerHeader = `<div class="header">
           src="${root}/assets/img/icons8-shopping-cart-60.png"
           alt="cart icon"
       /></a>
+      </div>
+
+      
+      
+
+
+      <div>
       </div>`;
 
 const userRole = JSON.parse(localStorage.getItem("userRoleC"));
+
+
 
 if (userRole === "buyer") {
   document.body.insertAdjacentHTML("afterbegin", buyerHeader);
@@ -147,3 +218,12 @@ document.getElementById("uploadtrack").addEventListener("click", () => {
     localStorage.removeItem("songId");
   }
 })};
+
+function toggleDropdown() {
+  const dropdown = document.getElementById("dropdown");
+  if (dropdown.style.display === "none") {
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
+  }
+}

@@ -16,6 +16,7 @@ const trackId = new URLSearchParams(window.location.search).get("tracks");
       const img = document.createElement('img');
       img.src = `https://picsum.photos/340/300`;
       img.id ="logo1"
+      img.classList.add("play-pause.fas")
      
       // add the HTML image element to the document body
       imagCon.append(img);
@@ -93,6 +94,8 @@ const trackId = new URLSearchParams(window.location.search).get("tracks");
       // likeBtn.addEventListener('click',likesong);
 
       const lyric = document.createElement("p");
+      document.querySelector(".lyric").append(lyric)
+
 
 
 
@@ -156,23 +159,11 @@ const trackId = new URLSearchParams(window.location.search).get("tracks");
         if (loadtrack.lyrics.length != 0) {
           return loadtrack.lyrics;
         }else{
-
-        const img=document.createElement("img");
-        img.src="https://cdn.dribbble.com/users/2046015/screenshots/6015680/media/c19fc414b5c17a9e286bd53c5ab19e7c.gif"
-        img.style.height=" 200px"
-        img.style.width="250px"
-
-        const not=document.createElement("span")
-        not.innerText="No lyrics available";
-        img.appendChild(not);
-
-        
-
-        return document.querySelector(".lyric").append(img)}
+          return "No Lyrics available"}
       }
 
       lyric.innerHTML = lyrics();
-      document.querySelector(".lyric").append(lyric);
+      
 
       const button = document.querySelector("#like");
       const likepop = document.querySelector(".like");
@@ -319,13 +310,13 @@ const trackId = new URLSearchParams(window.location.search).get("tracks");
           localStorage.setItem("cart", JSON.stringify(cart));
           // JSON.stringify({"track-id":loadtrack["productId"],"Trackname":loadtrack["trackname"],})
         } else {
-          const LikedList = cart.filter((data) => data.trackid != trackid);
+          alert("Already In cart")
 
           localStorage.setItem("cart", JSON.stringify(cart));
         }
       });
 
-      
+       
 // export function add(n){
 //     return n*2;
 //   }
