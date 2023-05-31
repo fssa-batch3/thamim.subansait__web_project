@@ -17,12 +17,42 @@
             <span>Enter your Activate ID</span>
         </div>
         <div class="btn">
-            <input type="password" placeholder="6 digit code">
+            <input type="text"  id="otp" maxlength="6" placeholder="6 digit code">
         </div>
-        <a href="../pages/homepage/buyer homepage.html">
+        
             <div class="btn1">
-                <button type="submit">Go</button>
+                <button type="submit" id="go">Go</button>
             </div>
-        </a>
+            
+
+        <script>
+
+            function validate(){
+            const otp = parseInt(document.getElementById("otp").value) 
+
+            const currentUser =JSON.parse(localStorage.getItem("userEmail"));
+            const subscription =JSON.parse(localStorage.getItem("subUser"));
+            const findSub = subscription.find(sub => sub.email === currentUser);
+        
+            if(findSub["OTP"] === otp){
+                alert("Verification successful")
+                window.location.href = "../pages/homepage/buyer homepage.html"
+            }
+            else if(otp === 0){
+                alert("Enter verification code")
+            }
+            else{
+                alert("Verification failed")
+            }
+        }
+
+        document.getElementById("go").addEventListener("click",validate)
+
+
+
+
+        </script>
     </body>
+
+
 </html>

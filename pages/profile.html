@@ -25,13 +25,13 @@
                     <h3>Today</h3>
                     <div class="today">
                         
-                        <h4 class="Nosong">NO Song</h4>
+                        <h4 class="Nosong">No Song</h4>
                    </div>
                    <h3>Yesterday</h3>
                    <div class="yesterday">
                     
                     
-                    <h4 class="NosongY">NO Song</h4>
+                    <h4 class="NosongY">No Song</h4>
                </div>
                <h3>later this Month</h3>
                <div class="thisweek">
@@ -70,10 +70,6 @@
                     <h2>Age</h2>
                     <input type="text" id="age" disabled>
                 </div>
-                <div class="input" id="artist" style="position: relative; right: 60px;"> 
-                    <h2 style="width: 100%;">ArtistName</h2>
-                    <input type="text" id="artistname" class="read" style="width: 190px;" readonly>
-                </div>
                 <div class="btn">
                     <button type="button" class="btn1">Edit</button>
                     <button type="submit" class="btn2" id="sav" style="display: none;">Save</button>
@@ -103,24 +99,33 @@
   const recent1Header = document.createElement("h2");
   recent1Header.textContent = "Recently Bought";
 
+  recent1Div.appendChild(recent1Header);
+
+  if(localStorage.getItem("BroughtTracks")){
+
+  const broughtTracks =JSON.parse(localStorage.getItem("BroughtTracks"));
+  const UserBroughtTracks = broughtTracks.filter((e) => e.userEmail === getEmail)
+
+for(let i=0; i<UserBroughtTracks.length;i++){
+
   const spreadDiv1 = document.createElement("div");
-  spreadDiv1.classList.add("spread");
+  spreadDiv1.classList.add("spread1");
 
   const cardDiv1 = document.createElement("div");
   cardDiv1.classList.add("card");
 
   const img1 = document.createElement("img");
   img1.setAttribute("loading", "lazy");
-  img1.setAttribute("src", "https://cdn5.beatstars.com/...");
+  img1.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
 
   const textDiv1 = document.createElement("div");
   textDiv1.classList.add("text");
 
   const textHeader1 = document.createElement("h3");
-  textHeader1.textContent = "Track Name";
+  textHeader1.textContent = UserBroughtTracks[i]["Trackname"];
 
   const textPara1 = document.createElement("p");
-  textPara1.textContent = "Artist Name";
+  textPara1.textContent = UserBroughtTracks[i]["artistname"];
 
   const button1 = document.createElement("button");
   button1.classList.add("btn-primary");
@@ -129,7 +134,7 @@
   const cartIcon = document.createElement("i");
   cartIcon.classList.add("fa-solid", "fa-cart-shopping");
 
-  const buttonText = document.createTextNode("$50");
+  const buttonText = document.createTextNode(`$ ${UserBroughtTracks[i]["price"]}`);
   button1.appendChild(cartIcon);
   button1.appendChild(buttonText);
 
@@ -140,8 +145,11 @@
   spreadDiv1.appendChild(textDiv1);
   spreadDiv1.appendChild(button1);
 
-  recent1Div.appendChild(recent1Header);
+  
   recent1Div.appendChild(spreadDiv1);
+}
+  }
+
 
   // Create the save later section
   const recent2Div = document.createElement("div");
@@ -247,7 +255,7 @@ const UserRole = JSON.parse(localStorage.getItem("userRoleC"));
 
 if (UserRole === "buyer") {
   buyerFeat();
-  document.getElementById("artist").style.display = "none";
+  // document.getElementById("artist").style.display = "none";
 } else {
   sellerFeat();
 }
@@ -303,7 +311,7 @@ document.getElementById("email").value = artist_data.user_email;
 document.getElementById("password").value = artist_data.user_password;
 document.getElementById("name").value = artist_data.user_name;
 document.getElementById("age").value = `${artist_data.age} years old`;
-document.getElementById("artistname").value = artist_data.artistName;
+// document.getElementById("artistname").value = artist_data.artistName;
 
 function update(e) {
             // getting the updated data from the input field
@@ -327,7 +335,7 @@ sumbit.addEventListener("click", findReadonly1);
 function findReadonly(e) {
   document.getElementById("password").removeAttribute("readonly");
   document.getElementById("name").removeAttribute("readonly");
-  document.getElementById("artistname").removeAttribute("readonly");
+  
   document.querySelector(".btn2").removeAttribute("style");
   document.querySelector(".btn1").setAttribute("style", "display:none");
 }
@@ -335,7 +343,7 @@ function findReadonly(e) {
 function findReadonly1(e) {
   document.getElementById("password").setAttribute("readonly", "true");
   document.getElementById("name").setAttribute("readonly", "true");
-  document.getElementById("artistname").setAttribute("readonly", "true");
+  
   document.querySelector(".btn2").setAttribute("style", "display:none");
   document.querySelector(".btn1").setAttribute("style", "display:inline");
 }
@@ -393,6 +401,7 @@ for (let i = 0; i < filteredLiked.length; i++) {
 }
 }
 
+if(localStorage.getItem("recentlyPlayed")){
 const recentlyPlayed = JSON.parse(localStorage.getItem("recentlyPlayed"));
 const fileterRecentlyPlayed = recentlyPlayed.filter(track => track.userEmail == getEmail)
 const UpdateDate = new Date();
@@ -454,6 +463,8 @@ function card(trackname,artistName,i){
 
         }
     }
+  }
+  
 
         </script>
         <script src="../../assets/js/seller profile.js"></script>
