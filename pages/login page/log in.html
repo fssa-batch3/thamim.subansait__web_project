@@ -1,66 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>log in</title>
-    <link rel="stylesheet" href="../../assets/css/css/bootstrap.min.css">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/log in style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="../../assets/css/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../assets/css/log in style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="log">
-        <h1>Login</h1>
-        <div class="btn">
-            <div class="box">
-            <input class="op1" type="text" name="username" placeholder="User Email" id="email" required>
-            <div>
-            <input class="op1"  type="password" name="password" id="password" placeholder="Password" required>
-            </div>
-            <input type="submit" onclick="signIn(event)" class="op" value="Login">
-            <div>
-            <a href="#" style="color:white; text-decoration:none;" class="btn1">Forgot password?</a>
+      <h1>Login</h1>
+      <div class="btn">
+        <div class="box">
+          <input
+            class="op1"
+            type="text"
+            name="username"
+            placeholder="User Email"
+            id="email"
+            required
+          />
+          <div>
+            <input
+              class="op1"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <input type="submit" class="op" value="Login" />
+          <div>
+            <a href="#" style="color: white; text-decoration: none" class="btn1"
+              >Forgot password?</a
+            >
+          </div>
         </div>
-        
-            </div> 
-        </div>
+      </div>
     </div>
     <script>
-    //  function sub(){
-    //     const username = document.getElementById("username").value  
-    //     const password = document.getElementById("password").value 
-            
-    //     console.log(username)
-    //     console.log(password)
-    //     window.location.href ="../homepage/buyer homepage.html"
-    //  }
-    function signIn(e) {
-    let user_email = document.getElementById('email').value,
-        user_password = document.getElementById('password').value;
-    let user_list = JSON.parse(localStorage.getItem('user_list')) || [];
-    let exist = user_list.length &&
-    JSON.parse(localStorage.getItem('user_list')).some(data =>
-        data.user_email.toLowerCase() == user_email &&
-        data.user_password == user_password);
-    if(!exist){
-        alert("Incorrect login credentials");
-    }
-    else{
-        localStorage.setItem("userEmail",JSON.stringify(user_email))
-        alert("Your login in successful");
-        location.href = "../profile.html";
-    }
-    e.preventDefault();
-}
+      //  function sub(){
+      //     const username = document.getElementById("username").value
+      //     const password = document.getElementById("password").value
 
+      //     console.log(username)
+      //     console.log(password)
+      //     window.location.href ="../homepage/buyer homepage.html"
+      //  }
+      localStorage.removeItem("userRole");
+
+      function signIn(e) {
+        e.preventDefault();
+        const user_email = document.getElementById("email").value;
+
+        user_password = document.getElementById("password").value;
+        const user_list = JSON.parse(localStorage.getItem("user_list")) || [];
+        const exist =
+    user_list.length &&
+    JSON.parse(localStorage.getItem("user_list")).some(
+            (data) =>
+              data.user_email.toLowerCase() == user_email &&
+              data.user_password == user_password
+    );
+
+        const index = user_list.findIndex(
+    (data) => data.user_email.toLowerCase() == user_email.toLowerCase()
+  );
+
+        const { userRole } = user_list[index];
+        if (!exist) {
+          alert("Incorrect login credentials");
+        } else {
+          localStorage.setItem("userEmail", JSON.stringify(user_email));
+          localStorage.setItem("userRoleC", JSON.stringify(userRole));
+          // //   alert("Your login in successful");
+          //   if (JSON.parse(localStorage.getItem("userRoleC")) == "buyer") {
+          //   window.location.href = "../profile.html";
+          // } else if (JSON.parse(localStorage.getItem("userRoleC")) == "seller") {
+          //   location.href ="../seller profile and upload a track/seller profile.html"
+          // }
+          window.location.href = "../profile.html";
+        }
+      }
+      document.querySelector(".op").addEventListener("click", signIn);
+      // document.querySelector(".op").addEventListener("click",pathUsers)
     </script>
-
-
-
-
-</body>
-
+  </body>
 </html>

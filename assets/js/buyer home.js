@@ -1,3 +1,5 @@
+
+
 const musicContainer = document.querySelector('.music-player');
     const artistName= document.querySelector('.artist');
     const playBtn = document.querySelector('.play-pause.fas'); 
@@ -12,10 +14,8 @@ const musicContainer = document.querySelector('.music-player');
     const likeBtn = document.querySelector('#like'); 
     const sound = document.querySelector('#voume');
     console.log(sound)
-    
-    
-    
-    
+
+ 
   
     // song names
 
@@ -135,29 +135,14 @@ const musicContainer = document.querySelector('.music-player');
     // volume control function on music player.
     
     
-    sound.setAttribute("data-test","mute");
+    // sound.setAttribute("data-test","mute");
     
-    function volumeMute(e){
-        const find= e.target
-          
-      if(!find.dataset.contains("unmute")){
-            // sound.removeAttribute("data-test","mute");
-            // sound.setAttribute("data-test","unmute")
-            audio.volume = 0;
-      }
-      else{
-        // sound.getAttribute("data-test","unmute")
-        // sound.removeAttribute("data-test","unmute");
-        // sound.setAttribute("data-test","mute")
-        audio.volume = 1;
-      }
-          
-    }
+    
 
-    
-      // function soundUnmute(){
-      //   audio.volume = 1;
-      // }
+
+
+
+     
     
 
     
@@ -166,125 +151,131 @@ const musicContainer = document.querySelector('.music-player');
      pevBtn.addEventListener("click", prevSong,);
      nextBtn.addEventListener("click",nextSong,);
      likeBtn.addEventListener('click',likesong);
-     sound.addEventListener("click", volumeMute);
-     
      
 
+     const volumeBar = document.querySelector('.volume-bar-1');
+const volumeBarFill = document.querySelector('.volumeProgress');
+const mute=document.querySelector("#voume")
+
+let isDragging = false;
+
+
+function setVolumeFromMousePosition(event) {
+  const volumeBarWidth = volumeBar.offsetWidth;
+  const mouseX = event.clientX - volumeBar.getBoundingClientRect().left;
+  const volumePercentage = (mouseX / volumeBarWidth); 
+  audio.volume = volumePercentage;
+  // console.log(volumePercentage)
+  volumeBarFill.style.width = `${100 * mouseX / volumeBarWidth}%`;
+
+  const volumeTurn = volumePercentage * 10
+  // console.log(volumeTurn)
+
+ return volumeTurn
+}
+
+
+
+volumeBar.addEventListener('mousedown', (event) => {
+  isDragging = true;
+  setVolumeFromMousePosition(event);
+});
+
+volumeBar.addEventListener('mousemove', (event) => {
+  if (isDragging) {
+    setVolumeFromMousePosition(event);
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+
+mute.addEventListener("click", () => {
+  mute.classList.toggle("mute")
+
+  if(mute.classList.contains("mute")){
+    mute.classList.add("fas", "fa-volume-mute");
+    audio.volume = 0;
+  }
+  else{
+    mute.classList.remove("fas", "fa-volume-mute");
+    mute.classList.add("fas", "fa-volume-down")
+    audio.volume = 1;
+  }
+})
      
-    const trackproduct = [
-      {
-        "Image": {
-          source: "../../assets/img/cover4.png",
-        },
-        "trackname": "beat001",
-        "artistname": "justin",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover1.png"
-        },
-        "trackname": "beat002",
-        "artistname": "thamim",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover2.png"
-        },
-        "trackname": "hard 001",
-        "artistname": "tommy",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover3.png"
-        },
-        "trackname": "fresh beat",
-        "artistname": "vignesh",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover5.png"
-        },
-        "trackname": "beatsworld",
-        "artistname": "ajun",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover6.png"
-        },
-        "trackname": "soultype",
-        "artistname": "j cole",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover7.png"
-        },
-        "trackname": "Blue eyes",
-        "artistname": "ji ji",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover10.png"
-        },
-        "trackname": "post type",
-        "artistname": "modi ji",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover5.png"
-        },
-        "trackname": "sixnine",
-        "artistname": "anil",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover7.png"
-        },
-        "trackname": "good",
-        "artistname": "turtle",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover4.png"
-        },
-        "trackname": "ariana",
-        "artistname": "beyonce",
-      },
-      {
-        "Image": {
-          source: "../../assets/img/cover1.png"
-        },
-        "trackname": "T-gan",
-        "artistname": "painkiller",
-      }
-
-
-    ]
-
-
     let track;
+    let trackContainer;
+    let track_name;
+    let artistname;
     let product_image;
 
     let loadData = JSON.parse(localStorage.getItem('trackName'))
 
+  let length;
+  if(loadData.length>=5){
+    length = 5
+    console.log(length)
+  }
+  else{
+    length = loadData.length
+    console.log(length)
+  }
 
 
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i<length; i++) {
 
       track = document.createElement("div");
-  
-      product_image = document.createElement("img");
-      product_image.setAttribute("src", trackproduct[i]["Image"]["source"]);
-      track.append(product_image);
+      track.setAttribute("class","tracks")
 
-      trackname = document.createElement("p");
-      trackname.innerText = loadData[i]["track name"];
-      track.append(trackname);
+      trackContainer=document.createElement("a");
+      trackContainer.setAttribute("href","../../pages/track listening page/track listening page.html?tracks="+loadData[i]["songId"]);
+      trackContainer.setAttribute("style","text-decoration:none;")
+      track.append(trackContainer)
+  
+      product_image = document.createElement("img"); 
+      product_image.setAttribute("src", `https://picsum.photos/200/300?random=${i}`);
+      trackContainer.append(product_image);
+
+      track_name = document.createElement("p");
+      track_name.innerText = loadData[i]["trackname"];
+      trackContainer.append(track_name);
 
       artistname = document.createElement("p");
-      artistname.innerText = trackproduct[i]["artistname"];
+      artistname.innerText = loadData[i]["artistName"];
       track.append(artistname);
 
 
       document.querySelector("div.productlist").append(track);
+     
     }
+
+
+    const lyricsSection = document.querySelector('.secondright');
+
+document.getElementById("showLyrics").addEventListener("click", ()=>{ 
+   lyricsSection.classList.toggle('hidden');   
+});
+    
+
+// if (JSON.parse(localStorage.getItem("userRoleC")) === "seller") {
+//   alert("Welcome Artist "+ `${JSON.parse(localStorage.getItem("userEmail"))}`)
+// }
+
+
+       
+
+
+
+// import { add } from "../js/tracklistening.js";
+// console.log(add(4))
+
+
+
+
+
+
+

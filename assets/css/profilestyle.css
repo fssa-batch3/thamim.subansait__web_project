@@ -1,109 +1,6 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family:'Poppins', sans-serif;
-
-}
-
-
-form {
-    background-color: #ffffff;
-    width: 500px;
-    height: 44px;
-    border-radius: 30px;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    margin-top: 50px;
-    margin-left: 300px;
-    
-  }
-
-  input {
-    all: unset;
-    font: 16px system-ui;
-    color: rgb(0, 0, 0);
-    height: 100%;
-    width: 100%;
-    padding: 6px 10px;
-  }
-
-  ::placeholder {
-    color: rgb(0, 0, 0);
-    opacity: 0.7; 
-  }
-
-  svg {
-    color: rgb(0, 0, 0);
-    fill: currentColor;
-    width: 24px;
-    height: 24px;
-    padding: 10px;
-  }
-
-  button {
-    all: unset;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-  }
-.header{
-    display: flex;
-    flex-direction: row;
-    background-color: #000000;
-    margin-left: 0px;
-    border-bottom: 1px solid wheat;
-    height: 13%;
-
-}
-.logo{
-    width: 150px;
-    
-}
 body{
-    width: 100%;
-    background-color: #000000;
-    overflow: hidden;
-    
+  overflow: hidden;
 }
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  top:65px;
-  left:60px;
-}
-.dropdown-content a{
-  text-decoration: none;
-  color: black;
-  padding-bottom: 20px;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.952);
-  padding: 18px 26px;
-  z-index: 1;
-  width: max-content;
-  border-radius: 10px;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-  background-color: rgb(168, 167, 114);
-}
-
-.carticon{
-  width: 40px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 250px;
-  cursor: pointer;
-}
-
-
-
 .leftside{
   color: white;  
   margin-top: 20px;
@@ -111,7 +8,8 @@ body{
     
 }
 .card img{
-  width: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 20px;
 }
 .card img:hover{
@@ -133,8 +31,9 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 87%;
+  height: 100%;
   color: white;
+  margin-top: 30px;
 
 }
 .recent{
@@ -142,7 +41,7 @@ body{
       text-align: center;
       padding: 20px;
       border-radius: 20px;
-      height: 17%;
+      height: 25%;
       overflow: scroll;
       margin-bottom: 50px;
       margin-left: 20px;
@@ -154,15 +53,23 @@ body{
   text-align: center;
   padding: 20px;
   border-radius: 20px;
-  height: 17%;
+  height: 25%;
   overflow: scroll;
   margin-bottom: 50px;
   margin-right: 20px;
   margin-top: 20px;
-  
-
 }
 .recent2{
+  background-color: #2b2b2b;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  height: 25%;
+  overflow: scroll;
+  margin-bottom: 50px;
+
+}
+.recent3{
   background-color: #2b2b2b;
   text-align: center;
   padding: 20px;
@@ -170,7 +77,6 @@ body{
   height: 17%;
   overflow: scroll;
   margin-bottom: 50px;
-
 
 }
 
@@ -181,6 +87,9 @@ body{
   width: 0px;
 }
 .recent2::-webkit-scrollbar{
+  width: 0px;
+}
+.recent3::-webkit-scrollbar{
   width: 0px;
 }
 .spread{
@@ -194,8 +103,19 @@ body{
  width: 100%;
 
 }
+.spread1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #1a1a1a;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
 .spread:hover{
-    background-color: #2b2b2b;
+    background-color: #5d5d5d;
     transform: scale(1.07);
     transition: 0.5s;
 }
@@ -218,20 +138,41 @@ body{
 .secondright{
   width: 30%;
 }
-.secondright button{
+.btn-primary{
    background-color:rgb(197, 179, 149);  
    width: 20%;
    font-size: 20px;
    border-radius: 10px;
-   margin-left: 70px;
+   position: relative;
+   right:30px ;
    color: black;
    font-weight: 600;
   
 }
+
+.withdraw{
+  background-color:rgb(248, 195, 244);  
+  width: 50%;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-left: 30px;
+  color: black;
+  font-weight: 600; 
+}
+
+.money {
+    font-size: 50px;
+    font-weight: 600;
+    color: #d97676;
+}
+
 .rightside{
   display: flex;
   flex-direction: column;
 
+}
+.liked{
+  text-align: initial
 }
 .input{
   display: flex;
@@ -269,7 +210,7 @@ body{
   margin-right: 0px;
   position: relative;
   right: 5px;
-  width: 190px;
+  width: 170px;
 }
 .input1 input{
   background-color: #f9f9f9;
@@ -283,7 +224,7 @@ body{
   color: #000000;
   border-radius: 10px;
   margin-left: 46px;
-  width: 51%;
+  width: 47%;
 }
 .btn{
   display: flex;

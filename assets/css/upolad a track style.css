@@ -1,128 +1,39 @@
-* {
-    padding: 0px;
-    margin: 0px;
-    
-    font-family:'Poppins', sans-serif;
-  
-  }
-    form {
-      background-color: #ffffff;
-      width: 500px;
-      height: 44px;
-      border-radius: 30px;
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      margin-top: 50px;
-      margin-left: 300px;
-    }
-  
-    form input {
-      font: 16px system-ui;
-      color: rgb(0, 0, 0);
-      height: 100%;
-      width: 100%;
-      padding: 6px 10px;
-      border-radius: 10px;
-    }
-  
-    form ::placeholder {
-      color: rgb(0, 0, 0);
-    }
-  
-    svg {
-      color: rgb(0, 0, 0);
-      fill: currentColor;
-      width: 24px;
-      height: 24px;
-      padding: 10px;
-    }
-.header{
-      display: flex;
-      flex-direction: row;
-      background-color: #000000;
-      border-bottom: 1px solid #dfbef3; 
-      height: 13%;
-  }
-  .header h2{
-    margin-top: 60px;
-    position: relative;
-    left: 100px;
-    cursor: pointer;   
-  }
-  .logo{
-      width: 150px;
-      
-  }
-
-  .join{
-       width:70px;
-       margin-left: 10px;
-       position: relative;
-       left: 10px;
-       top: 40px;
-
-
-  }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    top:65px;
-    left:60px;
-
-
+.input {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 1em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
+  text-align: center;
 }
-  
-.dropdown-content a{
-    text-decoration: none;
-    color: black;
-    padding-bottom: 20px;
-    
-    
+
+
+.input:focus {
+  transform: scale(1.05);
 }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.952);
-    padding: 18px 26px;
-    z-index: 1;
-    width:fit-content;
-
-
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  .dropdown:hover .dropdown-content:hover{
-    background-color: rgb(177, 177, 0);
-    border-radius: 5%;
-
-  }
-  .carticon{
-    width: 40px;
-    height: 40px;
-    margin-top: 50px;
-    margin-left: 40px;
-    cursor: pointer;
-}
-.profile{
-    width:40px;
-    height: 40px;
-    margin-top: 50px;
-    margin-left: 240px;
-    cursor: pointer;
     
+.content{
+  display: flex;
+  flex-direction: row;
 }
-  body{
-      background-color: #000000;
-      overflow-x: hidden
-      
-       
-  }
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.inputfield{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.left{
+  margin-left: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items:self-start;
+}
 
 
   .upload {
@@ -133,36 +44,42 @@
  
 
   }
-  #dragger_wrapper {
+  /* #dragger_wrapper {
     display: flex;
     flex-direction: column;
     
-    padding: 40px;
-    border-radius: 10px;
     
-}
+} */
 
-#dragger_wrapper1 {
+/* #dragger_wrapper1 {
     display: flex;
    flex-direction: column;
   
    padding: 40px;
    border-radius: 10px;
   
-}
+} */
 #dragger {
-  width: 800px;
-  height: 300px;
+  position: relative;
+  left: 100px;
+  top: 25px;
+  width: 400px;
+  height: 330px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px dashed #767676;
-  border-radius: 5px;
-  background-color:rgb(28, 28, 28)
+  border-radius: 10px;
+  background-color:rgba(52, 52, 52, 0.578)
 }
 
-#dragger1 {
+.lyricsUpload{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+/* #dragger1 {
   width: 500px;
   height: 300px;
   display: flex;
@@ -172,7 +89,7 @@
   border: 2px dashed #929292;
   border-radius: 5px;
   background-color:rgb(28, 28, 28)
-}
+} */
 .icon {
   color: #ffffff;
   font-size: 45px;
@@ -191,8 +108,9 @@ h3 {
 h1{
   color: white;
   text-align: center;
-  font-weight: 600;
-  font-size: 40px;
+  font-weight: 300;
+  font-size: 30px;
+  margin-top: 5px;
 }
 .browseFile {
     padding: 10px;
@@ -210,41 +128,18 @@ h1{
      bottom: 50px;
      opacity: 0;
      
+     
 }
-.below{
+/* .below{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 20px;
-}
-.left{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-left: 60px;
-  align-items: center;
-}
- #popo{
-  width: 35%;
-  padding:10px;
-  border-radius: 10px;
- }
- #popo::placeholder{
-  text-align: center;
-  color: #000000;
- }
- #popo1{
-    width: 10%;
-    padding: 10px;
-    border-radius: 10px;
- } 
- #popo1::placeholder{
-  text-align: center;
-  color: #000000;
- }
-#popo2{
-     padding: 10px;
-     border-radius: 5px;
+} */
+
+#Price{
+      border-radius: 8px;
+      
 }
 .right{
   margin-right: 100px;
@@ -255,15 +150,23 @@ h1{
 
 }
 .right button{
-  background-color: #ff0088;
+  background-color:green;
   padding: 10px;
   cursor: pointer;
   position: relative;
   left: 20px;
+  border-radius: 10px;
+  font-size: larger;
 }
 #text1{
  resize: none;
  position: relative;
- left: 235px;  
  top: 40px;
+ border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 1em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
 }

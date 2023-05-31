@@ -116,6 +116,12 @@ body{
   width: 70px;
   border-radius: 20px;
 }
+
+.trackPoster{
+  width: 90px;
+  height: 70px;
+  
+}
 .card img:hover{
      transform: scale(1.1);
      transition: 0.5s;
@@ -215,8 +221,18 @@ body{
  margin-top: 15px;
  margin-bottom: 15px;
  width: 100%;
-
 }
+.spread1{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #1a1a1a;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+ }
 .spread:hover{
     background-color: #2b2b2b;
     transform: scale(1.07);
@@ -248,8 +264,7 @@ body{
    border-radius: 10px;
    margin-left: 30px;
    color: black;
-   font-weight: 600;
-  
+   font-weight: 600; 
 }
 .rightside{
   display: flex;
